@@ -1,4 +1,0 @@
-bottle
-bottle-streamline
-pyftpdlib
-confloader
