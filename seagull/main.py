@@ -53,14 +53,32 @@ def main():
     parser.add_argument('--pid-file', '-p', metavar='PATH',
                         default=DEFAULT_PID, help='create a PID file at '
                         'specified path (default is /var/run/seagull.pid)')
+    parser.add_argument('--quiet', '-q', action='store_true',
+                        help='suppress terminal output')
+    parser.add_argument('--stop', '-S', action='store_true',
+                        help='stop an instance that would otherwise be '
+                        'started with given options')
     args = parser.parse_args()
 
     if args.version:
         print(__version__)
         return 0
 
+    if args.stop:
+        with open(args.pid_file, 'r') as f:
+            pid = f.read()
+        try:
+            App.kill(int(pid))
+        except (ValueError, TypeError):
+            print('Invalid pid in pid file: {}'.format(pid), file=sys.stderr)
+            sys.exit(1)
+        except Exception as e:
+            print('Could not stop Seagull: {}'.format(e))
+            sys.exit(1)
+        sys.exit(0)
+
     app = App(conf=args.conf, background=args.background,
-              pid_file=args.pid_file)
+              pid_file=args.pid_file, quiet=args.quiet)
     return app.start()
 
 

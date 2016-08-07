@@ -38,7 +38,8 @@ class App:
     LOOP_INTERVAL = 10
 
     def __init__(self, conf, background=False, pid_file=None, wd='/',
-                 stdout=None, stderr=None, stdin=None, user=None, group=None):
+                 quiet=False):
+        self.child = False
         self.running = False
         self.app = bottle.Bottle()
         self.conf_file = conf
@@ -46,17 +47,15 @@ class App:
         self.background = background
         self.pid_file = pid_file
         self.wd = wd
-        self.stdout = stdout
-        self.stderr = stderr
-        self.stdin = stdin
-        self.user = user
-        self.group = group
+        self.quiet = quiet
         self.server = None
         self.host = None
         self.port = None
         self.load_conf()
+        self.user = self.conf.get('seagull.user')
+        self.group = self.conf.get('seagull.group')
         self.debug = self.conf.get('seagull.debug', False)
-        logger.configure(self.conf)
+        logger.configure(self.conf, self.quiet)
 
     def fork(self):
         """
@@ -68,8 +67,11 @@ class App:
             pid = os.fork()
         except OSError:
             raise RuntimeError('process failed to fork')
-        if not pid:
-            raise RuntimeError('process failed to fork')
+        if pid == 0:
+            if not self.child:
+                os.setsid()
+        else:
+            os._exit(0)
         return pid
 
     def setuid(self):
@@ -120,30 +122,31 @@ class App:
         """
         logging.info('Forking into background')
         # Fork once
-        self.fork()
+        try:
+            self.fork()
+        except RuntimeError:
+            logging.critical('Could not fork the process')
+            sys.exit(1)
+        logging.debug('Started child process')
+        self.child = True
         # Set up the process environment
         os.chdir(os.path.normpath(self.wd))
         os.umask(0)
-        if self.user:
-            self.setuid()
-        self.setsid()
         # Fork second time
-        pid = self.fork()
-        # Fix the STD{OUT,ERR,IN} as needed
-        if self.stdout:
-            logging.debug('Redirecting STDOUT to %s', self.stdout)
-            self.redirect(sys.stdout, self.stdout)
-        if self.stderr:
-            logging.debug('Redirecting STDERR to %s', self.stderr)
-            self.redirect(sys.stderr, self.stderr)
-        if self.stdin:
-            logging.debug('Reading STDIN from %s', self.stdin)
-            self.redirect(sys.stdin, self.stdin, mode=self.READ)
+        try:
+            self.fork()
+        except RuntimeError:
+            logging.critical('Could not double-fork the process')
+            sys.exit(1)
+        logging.debug('Running as daemon (PID={})'.format(os.getpid()))
         # Write the PID as needed
         if self.pid_file:
             with open(self.pid_file, 'w') as f:
-                f.write(pid)
+                f.write(str(os.getpid()))
             logging.debug('PID file written to %s', self.pid_file)
+        # Switch to unprivileged user
+        if self.user:
+            self.setuid()
 
     def load_conf(self):
         """
@@ -191,7 +194,9 @@ class App:
         self.prepare_app()
         self.prepare_routes()
         self.server.start()
-        assert self.server.started
+        if not self.server.started:
+            logging.critical('Failed to start server')
+            sys.exit(0)
         self.running = True
         logging.info('Server started on http://%s:%s/', self.host, self.port)
         print('Server started on http://{}:{}/'.format(
@@ -210,7 +215,8 @@ class App:
         Generic signal handler
         """
         self.stop_app()
-        sys.exit(0)
+        if os.path.exists(self.pid_file):
+            os.unlink(self.pid_file)
 
     onint = onhalt
     onterm = onhalt
@@ -227,6 +233,7 @@ class App:
         """
         Start the manager
         """
+        logging.info('Starting Seagull')
         if self.background:
             self.daemonize()
         self.handle_signals()
@@ -237,6 +244,10 @@ class App:
         while self.running:
             logging.debug('Background loop tick')
             gevent.sleep(self.LOOP_INTERVAL)
+
+    @staticmethod
+    def kill(pid):
+        os.kill(pid, signal.SIGTERM)
 
     @staticmethod
     def import_object(name):

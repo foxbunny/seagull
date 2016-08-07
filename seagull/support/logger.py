@@ -28,7 +28,7 @@ DEFAULT_BACKUPS = 0
 DEFAULT_LEVEL = logging.DEBUG
 
 
-def configure(conf):
+def configure(conf, quiet=False):
     """
     Set up the global logger configuration
     """
@@ -44,15 +44,17 @@ def configure(conf):
         level = LEVELS.get(conf.get('logger.level', 'debug'), DEFAULT_LEVEL)
 
     handlers = {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'stream': sys.stdout
-        },
         'file': {
             'class': 'logging.NullHandler',
             'formatter': 'default',
         }
     }
+
+    if not quiet:
+        handlers['console'] = {
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout
+        }
 
     if path:
         handlers['file'].update({
@@ -69,7 +71,7 @@ def configure(conf):
     logging.config.dictConfig({
         'version': 1,
         'root': {
-            'handlers': ['file', 'console'],
+            'handlers': handlers.keys(),
             'level': level
         },
         'handlers': handlers,
