@@ -1,5 +1,5 @@
 =======
-seagull
+Seagull
 =======
 
 Photography folio site w/ FTP support.
