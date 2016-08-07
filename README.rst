@@ -4,6 +4,22 @@ Seagull
 
 Photography folio site w/ FTP support.
 
+.. note::
+    This program is currently alpha, and doesn't do anything useful.
+
+Overview
+========
+
+Seagull is a simple generic photo gallery app with FTP upload support. The
+project is still incomplete so don't expect anything to work just yet. When
+it's finished, it will have the following features:
+
+- Full support for social metadata
+- Completely skinnable (CSS/HTML/JavaScript)
+- Built-in FTP server for managing the photos
+- Ability to scale reasonabily well on modest hardware
+- Full developer documentation
+
 Skins: organization of static assets and templates
 ==================================================
 
