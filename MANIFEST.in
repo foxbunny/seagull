@@ -1,0 +1,12 @@
+include README.rst
+include COPYING
+include Makefile
+include MANIFEST.in
+recursive-include seagull *.js
+recursive-include seagull *.css
+recursive-include seagull *.ttf
+recursive-include seagull *.woff
+recursive-include seagull *.svg
+recursive-include seagull *.coffee
+recursive-include seagull *.scss
+recursive-include seagull *.mako

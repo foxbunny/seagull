@@ -34,6 +34,7 @@ setup(
     license='GPLv3+',
     keywords='photography app website ajax json ftp',
     packages=find_packages(),
+    include_package_data=True,
     long_description=read('README.rst'),
     install_requires=[
         'bottle==0.12.9',
