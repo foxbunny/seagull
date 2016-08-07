@@ -13,10 +13,15 @@
 # details.
 #
 
-from os.path import abspath, normpath, dirname
+from ..support.templating import TemplateRoute
 
-__version__ = '1.0.dev1'
-__author__ = 'Hajime Yamasaki Vukelic'
-__appdir__ = abspath(normpath(dirname(__file__)))
 
-__all__ = ('__version__', '__author__', '__appdir__')
+class Main(TemplateRoute):
+    """
+    Main page
+    """
+    path = '/'
+    template_name = 'main.mako'
+
+    def get(self):
+        return {}

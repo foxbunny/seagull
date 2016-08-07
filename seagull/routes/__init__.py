@@ -13,10 +13,6 @@
 # details.
 #
 
-from os.path import abspath, normpath, dirname
+from .main import Main
 
-__version__ = '1.0.dev1'
-__author__ = 'Hajime Yamasaki Vukelic'
-__appdir__ = abspath(normpath(dirname(__file__)))
-
-__all__ = ('__version__', '__author__', '__appdir__')
+ROUTES = (Main,)

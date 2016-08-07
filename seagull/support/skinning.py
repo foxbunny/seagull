@@ -13,10 +13,21 @@
 # details.
 #
 
-from os.path import abspath, normpath, dirname
+from os.path import normpath, join
 
-__version__ = '1.0.dev1'
-__author__ = 'Hajime Yamasaki Vukelic'
-__appdir__ = abspath(normpath(dirname(__file__)))
+from seagull import __appdir__
 
-__all__ = ('__version__', '__author__', '__appdir__')
+
+DEFAULT_SKIN = 'seagull'
+
+
+def configure(conf):
+    """
+    Configure a seagull to use templates and assets from specified skin
+    """
+    skin = conf.get('seagull.skin', DEFAULT_SKIN)
+    skin_path = normpath(join(__appdir__, 'skins', skin))
+    templates_dir = join(skin_path, 'templates')
+    assets_dir = join(skin_path, 'assets')
+    conf['runtime.templates_dir'] = templates_dir
+    conf['runtime.assets_dir'] = assets_dir
