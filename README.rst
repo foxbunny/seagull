@@ -20,6 +20,28 @@ it's finished, it will have the following features:
 - Ability to scale reasonabily well on modest hardware
 - Full developer documentation
 
+Installing
+==========
+
+TODO
+
+Starting and stopping
+=====================
+
+After installing, Seagull can be started with just::
+
+    $ seagull
+
+To run it 'professionally' (that is, as a proper daemon), use the following
+command::
+
+    $ seagull -b -q --pid-file PATH
+
+The above command starts Seagull as a well-behaved daemon (``-b``), output 
+suppressed (``-q``), and its PID written out to ``PATH``.
+
+Type ``seagull --help`` for more command line options.
+
 Skins: organization of static assets and templates
 ==================================================
 
