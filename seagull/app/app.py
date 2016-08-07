@@ -197,13 +197,6 @@ class App:
         print('Server started on http://{}:{}/'.format(
             self.host, self.port))
 
-    def onhalt(self, signum, exc):
-        """
-        Generic signal handler
-        """
-        self.stop_app()
-        sys.exit(0)
-
     def onhup(self, signum, exc):
         """
         Reload the configuration and restart the server
@@ -211,6 +204,13 @@ class App:
         self.load_conf()
         logging.info('Configuration reloaded')
         self.prepare_app(skip_server_init=True)
+
+    def onhalt(self, signum, exc):
+        """
+        Generic signal handler
+        """
+        self.stop_app()
+        sys.exit(0)
 
     onint = onhalt
     onterm = onhalt
