@@ -25,6 +25,11 @@ setup(
         'confloader==1.1',
         'pyftpdlib==1.5.1',
     ],
+    entry_points={
+        'console_scripts': [
+            'seagull = seagull.main:main',
+        ],
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Utilities',
