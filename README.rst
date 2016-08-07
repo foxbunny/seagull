@@ -1,12 +1,12 @@
+.. image:: img/seagull.png
+    :alt: Seagull logo
+    :align: left
+
 =======
 Seagull
 =======
 
 Photography folio site w/ FTP support.
-
-.. image:: img/seagull.png
-    :alt: Seagull logo
-    :align: left
 
 .. note::
     This program is currently alpha, and doesn't do anything useful.
