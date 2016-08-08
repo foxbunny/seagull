@@ -55,6 +55,12 @@ class App:
         self.user = self.conf.get('seagull.user')
         self.group = self.conf.get('seagull.group')
         self.debug = self.conf.get('seagull.debug', False)
+        self.template_defaults = {
+            'request': bottle.request,
+            'app': self.app,
+            'conf': self.conf,
+        }
+        self.conf['runtime.template_defaults'] = self.template_defaults
         logger.configure(self.conf, self.quiet)
 
     def fork(self):
@@ -154,13 +160,6 @@ class App:
         """
         self.conf = confloader.ConfDict.from_file(self.conf_file)
 
-    def get_template_defaults(self):
-        return {
-            'request': bottle.request,
-            'app': self.app,
-            'conf': self.conf,
-        }
-
     def prepare_app(self, skip_server_init=False):
         """
         Prepare the application for start
@@ -177,7 +176,7 @@ class App:
             'autojson': False,
         })
         skinning.configure(self.conf)
-        templating.configure(self.conf, self.get_template_defaults())
+        templating.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:

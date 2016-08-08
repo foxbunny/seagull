@@ -28,9 +28,10 @@ TEMPLATE_CONFIG = {
 }
 
 
-def configure(conf, defaults={}, **options):
+def configure(conf, **options):
     debug = conf.get('seagull.debug')
     cache_dir = conf.get('seagull.template_cache', DEFAULT_CACHE)
+    defaults = conf['runtime.template_defaults']
     templates_dir = conf['runtime.templates_dir']
     TEMPLATE_CONFIG['lookup'] = TemplateLookup(directories=[templates_dir],
                                                filesystem_checks=debug,
