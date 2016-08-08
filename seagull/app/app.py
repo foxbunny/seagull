@@ -27,7 +27,7 @@ import confloader
 import gevent.pywsgi
 
 from ..routes import ROUTES
-from ..support import logger, skinning, templating
+from . import logger, skinning, templating
 
 
 class App:

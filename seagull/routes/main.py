@@ -13,7 +13,7 @@
 # details.
 #
 
-from ..support.templating import TemplateRoute
+from ..app.templating import TemplateRoute
 
 
 class Main(TemplateRoute):
