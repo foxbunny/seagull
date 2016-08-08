@@ -13,6 +13,15 @@
 # details.
 #
 
-from . import main, app
+from bottle import static_file
 
-ROUTES = (main.Main, app.Static)
+from streamline import NonIterableRouteBase
+
+
+class Static(NonIterableRouteBase):
+    name = 'app:static'
+    path = '/static/<path:path>'
+
+    def get(self, path):
+        staticdir = self.app.config['runtime.static_dir']
+        return static_file(path, staticdir)

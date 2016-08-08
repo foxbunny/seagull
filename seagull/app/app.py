@@ -27,7 +27,7 @@ import confloader
 import gevent.pywsgi
 
 from ..routes import ROUTES
-from . import logger, skinning, templating
+from . import logger, skinning, templating, assets
 
 
 class App:
@@ -177,6 +177,7 @@ class App:
         })
         skinning.configure(self.conf)
         templating.configure(self.conf)
+        assets.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:
