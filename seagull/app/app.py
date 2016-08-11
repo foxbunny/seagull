@@ -16,6 +16,7 @@
 import os
 import sys
 import signal
+import locale
 import logging
 import importlib
 
@@ -25,7 +26,7 @@ import confloader
 import gevent.pywsgi
 
 from ..routes import ROUTES
-from . import logger, skinning, templating, assets
+from . import logger, skinning, templating, assets, gallery
 
 try:
     import pwd, grp
@@ -33,6 +34,9 @@ except ImportError:
     has_user = False
 else:
     has_user = True
+
+# Initialize the locale
+locale.setlocale(locale.LC_ALL, '')
 
 class App:
     READ = 'r'
@@ -185,6 +189,7 @@ class App:
         skinning.configure(self.conf)
         templating.configure(self.conf)
         assets.configure(self.conf)
+        gallery.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:
