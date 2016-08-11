@@ -15,8 +15,6 @@
 
 import os
 import sys
-import pwd
-import grp
 import signal
 import logging
 import importlib
@@ -29,6 +27,12 @@ import gevent.pywsgi
 from ..routes import ROUTES
 from . import logger, skinning, templating, assets
 
+try:
+    import pwd, grp
+except ImportError:
+    has_user = False
+else:
+    has_user = True
 
 class App:
     READ = 'r'
@@ -89,6 +93,9 @@ class App:
 
         Returns a tuple containing the active user and group IDs.
         """
+        if not has_user:
+            logging.warn('User switching is disabled on this OS')
+            return
         logging.debug('Setting process UID and GID')
         pwinfo = pwd.getpwnam(self.user)
         uid = pwinfo.pw_uid
@@ -225,9 +232,15 @@ class App:
         """
         Set up signal handling
         """
-        signal.signal(signal.SIGHUP, self.onhup)
-        signal.signal(signal.SIGINT, self.onint)
-        signal.signal(signal.SIGTERM, self.onterm)
+        if hasattr(signal, 'SIGHUP'):
+            logging.debug('Registering SIGHUP handler')
+            signal.signal(signal.SIGHUP, self.onhup)
+        if hasattr(signal, 'SIGINT'):
+            logging.debug('Registering SIGINT handler')
+            signal.signal(signal.SIGINT, self.onint)
+        if hasattr(signal, 'SIGTERM'):
+            logging.debug('Registering SIGTERM handler')
+            signal.signal(signal.SIGTERM, self.onterm)
 
     def start(self):
         """
