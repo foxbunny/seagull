@@ -42,7 +42,7 @@ setup(
         'confloader==1.1',
         'pyftpdlib==1.5.1',
         'Mako==1.0.4',
-        'gevent=1.1.2',
+        'gevent==1.1.2',
     ],
     entry_points={
         'console_scripts': [
