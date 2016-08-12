@@ -14,10 +14,24 @@
 #
 
 from .app import Static
+from ..app.templating import TemplateRoute
 
 
-class Index(Static):
+class Main(TemplateRoute):
+    """
+    Main page
+    """
+    path = '/'
+    template_name = 'main.mako'
+
+    def get(self):
+        return {}
+
+
+class Image(Static):
     path = '/gallery/<path:path>'
 
     def get_base_path(self):
         return self.config['runtime.gallery_dir']
+
+

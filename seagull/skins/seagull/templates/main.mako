@@ -7,7 +7,7 @@
     </head>
     <body>
         %for entry in gallery:
-            <img src="${url('gallery:index', path=gallery.get_urlpath(entry))}">
+            <img src="${url('gallery:image', path=gallery.get_urlpath(entry))}">
         %endfor
         <p>Nothing to see here.</p>
         <script src="${assets['js/app']}"></script>

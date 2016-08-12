@@ -13,6 +13,6 @@
 # details.
 #
 
-from . import main, app, gallery
+from . import gallery, app
 
-ROUTES = (main.Main, app.Static, gallery.Index)
+ROUTES = (gallery.Main, gallery.Image, app.Static)
