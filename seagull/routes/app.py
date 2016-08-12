@@ -19,9 +19,10 @@ from streamline import NonIterableRouteBase
 
 
 class Static(NonIterableRouteBase):
-    name = 'app:static'
     path = '/static/<path:path>'
 
+    def get_base_path(self):
+        return self.config['runtime.static_dir']
+
     def get(self, path):
-        staticdir = self.app.config['runtime.static_dir']
-        return static_file(path, staticdir)
+        return static_file(path, self.get_base_path())
