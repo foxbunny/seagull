@@ -15,6 +15,7 @@
 
 from .app import Static
 from ..app.templating import TemplateRoute
+from ..gallery.pager import Pager
 
 
 class Main(TemplateRoute):
@@ -24,8 +25,17 @@ class Main(TemplateRoute):
     path = '/'
     template_name = 'main.mako'
 
+    @property
+    def current_page(self):
+        try:
+            return int(self.request.query['page'])
+        except (KeyError, ValueError, TypeError):
+            return 1
+
     def get(self):
-        return {}
+        index = self.config['runtime.gallery']
+        pager = Pager(index, self.current_page)
+        return {'pager': pager}
 
 
 class Image(Static):
@@ -33,5 +43,3 @@ class Image(Static):
 
     def get_base_path(self):
         return self.config['runtime.gallery_dir']
-
-
