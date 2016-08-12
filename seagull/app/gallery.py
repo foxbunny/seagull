@@ -30,5 +30,6 @@ def configure(conf):
     gallery_dir = os.path.abspath(os.path.normpath(gallery_dir))
     index = Index(gallery_dir)
     index.rescan()
+    conf['runtime.gallery_dir'] = gallery_dir
     conf['runtime.gallery'] = index
     conf['runtime.template_defaults']['gallery'] = index

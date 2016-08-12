@@ -13,6 +13,11 @@
 # details.
 #
 
-from . import main, app, gallery
+from .app import Static
 
-ROUTES = (main.Main, app.Static, gallery.Index)
+
+class Index(Static):
+    path = '/gallery/<path:path>'
+
+    def get_base_path(self):
+        return self.config['runtime.gallery_dir']
