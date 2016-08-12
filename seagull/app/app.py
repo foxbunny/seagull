@@ -67,6 +67,7 @@ class App:
             'request': bottle.request,
             'app': self.app,
             'conf': self.conf,
+            'url': self.app.get_url,
         }
         self.conf['runtime.template_defaults'] = self.template_defaults
         logger.configure(self.conf, self.quiet)
