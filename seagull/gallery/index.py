@@ -18,6 +18,7 @@ import locale
 import hashlib
 import logging
 import functools
+import urllib.request
 from pathlib import PosixPath, WindowsPath
 
 
@@ -156,6 +157,20 @@ class Index:
         """
         logging.debug('Sorting items')
         self.entries.sort(key=Entry.cmp)
+
+    def get_relpath(self, entry):
+        """
+        Return path of an entry relative to the gallery base path.
+        """
+        # FIXME: This needs to guard against directory traversal
+        return os.path.relpath(entry.path, self.path)
+
+    def get_urlpath(self, entry):
+        """
+        Return path of an entry relative to the gallery base path as posix url
+        """
+        rpath = self.get_relpath(entry)
+        return urllib.request.pathname2url(rpath)
 
     def __getitem__(self, key):
         return self.entries[key]
