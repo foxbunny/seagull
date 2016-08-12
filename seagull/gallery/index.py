@@ -172,6 +172,9 @@ class Index:
         rpath = self.get_relpath(entry)
         return urllib.request.pathname2url(rpath)
 
+    def __len__(self):
+        return len(self.entries)
+
     def __getitem__(self, key):
         return self.entries[key]
 
