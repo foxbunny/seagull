@@ -139,7 +139,7 @@ class Index:
         """
         Perform full rescan of the gallery directory.
         """
-        self.entries = []
+        entries = []
         for dentry in os.scandir(self.path):
             try:
                 entry = Entry(dentry)
@@ -147,16 +147,18 @@ class Index:
                 logging.debug('Omitted %s from gallery', dentry.path)
                 continue
             self.check_last_update(entry)
-            self.entries.append(entry)
+            entries.append(entry)
+        self.entries = self.sort(entries)
         logging.debug('Added %s items to the index', len(self.entries))
-        self.sort()
 
-    def sort(self):
+    def sort(self, entries=None):
         """
         Sort the entries alphabetically
         """
+        entries = entries or self.entries
         logging.debug('Sorting items')
-        self.entries.sort(key=Entry.cmp)
+        entries.sort(key=Entry.cmp)
+        return entries
 
     def get_relpath(self, entry):
         """
