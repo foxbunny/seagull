@@ -56,7 +56,7 @@ setup(
     cmdclass={
         'watch': setup_commands.Watch,
         'stop': setup_commands.Stop,
-        'compile': setup_commands.Recompile,
+        'recompile': setup_commands.Recompile,
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
