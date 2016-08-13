@@ -15,4 +15,4 @@
 
 from . import gallery, app
 
-ROUTES = (gallery.Main, gallery.Image, app.Static)
+ROUTES = (gallery.Main, gallery.Image, gallery.Reindex, app.Static)

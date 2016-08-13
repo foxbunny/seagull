@@ -43,3 +43,13 @@ class Image(Static):
 
     def get_base_path(self):
         return self.config['runtime.gallery_dir']
+
+
+class Reindex(TemplateRoute):
+    path = '/reindex/<token>'
+    template_name = 'reset.mako'
+
+    def get(self, token):
+        index = self.config['runtime.gallery']
+        index.rescan()
+        return {}
