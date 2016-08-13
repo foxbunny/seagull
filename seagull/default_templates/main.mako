@@ -1,21 +1,26 @@
-<!doctype html>
+<%doc>
+    Gallery main page
+    =================
 
-<html lang="en">
-    <head>
-        <title>Seagull photo gallery</title>
-        <link rel="stylesheet" href="${assets['css/app']}">
-    </head>
-    <body>
-        %for entry in pager:
-            <img src="${url('gallery:image', path=gallery.get_urlpath(entry))}">
-        %endfor
-        %if pager.has_prev:
-            <a href="${url('gallery:main', page=pager.prev_page)}">previous</a>
-        %endif
-        %if pager.has_next:
-            <a href="${url('gallery:main', page=pager.next_page)}">next</a>
-        %endif
-        <p>Nothing to see here.</p>
-        <script src="${assets['js/app']}"></script>
-    </body>
-</html>
+    Seagull photo gallery app
+    Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+    This program is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
+
+    This program is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+    more details.
+</%doc>
+
+<%inherit file="/base.mako"/>
+<%namespace name="images" file="/_images.mako"/>
+<%namespace name="paging" file="/_paging.mako"/>
+
+<%block name="title">Seagull photo gallery | page ${pager.current_page}</%block>
+
+${images.list()}
+${paging.simple_pager()}
