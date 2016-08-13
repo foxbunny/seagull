@@ -13,6 +13,8 @@
 # details.
 #
 
+from os.path import join, exists
+
 from bottle import static_file
 
 from streamline import NonIterableRouteBase
@@ -21,8 +23,37 @@ from streamline import NonIterableRouteBase
 class Static(NonIterableRouteBase):
     path = '/static/<path:path>'
 
-    def get_base_path(self):
-        return self.config['runtime.static_dir']
+    def get_base_paths(self):
+        return (self.config['runtime.static_dir'],
+                self.config['runtime.assets_dir'])
+
+    @staticmethod
+    def get_first_base(bases, path):
+        """
+        Return the first base path within which the path is found
+
+        The last base path is always returned such that 404 errors are handled
+        by bottle.
+        """
+        for b in bases:
+            if not exists(join(b, path)):
+                continue
+            return b
+        return b
+
+    @staticmethod
+    def sanitize_path(path):
+        if path.startswith('/'):
+            path = path[1:]
+        return path.replace('..', '.')
 
     def get(self, path):
-        return static_file(path, self.get_base_path())
+        path = self.sanitize_path(path)
+        base_paths = self.get_base_paths()
+        if hasattr(base_paths, 'split'):
+            # String, so go simple
+            base_path = base_paths
+        else:
+            base_path = self.get_first_base(base_paths, path)
+        return static_file(path, base_path)
+

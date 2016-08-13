@@ -41,7 +41,7 @@ class Main(TemplateRoute):
 class Image(Static):
     path = '/gallery/<path:path>'
 
-    def get_base_path(self):
+    def get_base_paths(self):
         return self.config['runtime.gallery_dir']
 
 
