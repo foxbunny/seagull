@@ -75,14 +75,22 @@ valid skin. The templates are found in the ``templates`` directory.
 Compiling static assets
 =======================
 
-The makefile provided in the source tree can be used to compile assets for the
-skins that are found in the ``seagull/skins`` directory. The following make
-targets can be used to work with the assets:
+The setup module (you can use setup.cmd on Windows) provides commands for
+working with static assets.
 
 ==================  ===========================================================
-make [start]        Start Compass and CoffeeScript watchers
+setup watch         Start Compass and CoffeeScript watchers
 ------------------  -----------------------------------------------------------
-make stop           Stop the watchers
+setup stop          Stop the watchers
 ------------------  -----------------------------------------------------------
-make recompile      One-time recompile of all assets
+setup recompile     One-time recompile of all assets
 ==================  ===========================================================
+
+The commands accept a ``--skin`` command line option which directs the Compass
+and CoffeeScript commands to a specific skin directory. If no skin is
+specified, 'seagull' will be used as default.
+
+Additionally, ``--static-url`` can be used to specify the base URL path for 
+static assets. The default is '/static/'. Note that this setting must match the
+setting you will be used in the configuration file as the command will not try
+to load the configuration file.

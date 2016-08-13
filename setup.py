@@ -17,7 +17,9 @@
 import os
 
 from setuptools import setup, find_packages
+
 import seagull
+from seagull import setup_commands
 
 
 def read(fname):
@@ -50,6 +52,11 @@ setup(
         'console_scripts': [
             'seagull = seagull.main:main',
         ],
+    },
+    cmdclass={
+        'watch': setup_commands.Watch,
+        'stop': setup_commands.Stop,
+        'compile': setup_commands.Recompile,
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
