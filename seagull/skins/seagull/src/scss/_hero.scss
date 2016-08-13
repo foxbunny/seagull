@@ -21,13 +21,13 @@ for more details.
 
 @include keyframes(fly-in) {
   from {
-    right: -30rem;
+    @include transform(translateX(30rem));
   }
   50% {
-    right: -30rem;
+    @include transform(translateX(30rem));
   }
   to {
-    right: 2rem;
+    @include transform(translateX(0));
   }
 }
 
@@ -43,12 +43,21 @@ for more details.
 .hero {
   display: block;
   height: 100%;
-  background: transparent image-url('background.jpg') center center no-repeat;
-  background-attachment: fixed;
-  @include background-size(cover);
-  transform-style: inherit;
 
   &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent image-url('background.jpg') center center no-repeat;
+    background-attachment: fixed;
+    @include transform(scale(1.1));
+  }
+
+  &:after {
     content: '';
     display: block;
     position: absolute;
@@ -68,6 +77,7 @@ for more details.
     text-align: right;
     right: 2rem;
     bottom: 5rem;
+    @include transform(translateX(0));
     @include animation(6s ease-out fly-in);
 
     @media screen and (min-width: 600px) {
@@ -81,6 +91,7 @@ for more details.
     text-align: right;
     right: 2rem;
     bottom: 3.2rem;
+    @include transform(translateX(0));
     @include animation(8s ease-out fly-in);
   }
 

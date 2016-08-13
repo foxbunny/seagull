@@ -35,7 +35,6 @@ body {
   line-height: 140%;
   background: $background;
   color: $text;
-  transform-style: preserve-3d;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -46,4 +45,10 @@ a {
   &:visited {
     color: darken($text, 20);
   }
+}
+
+footer {
+  padding: 2rem 2rem 5rem;
+  text-align: center;
+  color: darken($text, 20);
 }

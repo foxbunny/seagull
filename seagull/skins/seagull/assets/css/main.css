@@ -138,17 +138,23 @@ body {
   line-height: 140%;
   background: #333;
   color: #eee;
-  transform-style: preserve-3d;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-/* line 43, ../../src/scss/_layout.scss */
+/* line 42, ../../src/scss/_layout.scss */
 a {
   color: #eee;
 }
-/* line 46, ../../src/scss/_layout.scss */
+/* line 45, ../../src/scss/_layout.scss */
 a:visited {
+  color: #bbbbbb;
+}
+
+/* line 50, ../../src/scss/_layout.scss */
+footer {
+  padding: 2rem 2rem 5rem;
+  text-align: center;
   color: #bbbbbb;
 }
 
@@ -174,35 +180,50 @@ for more details.
 */
 @-moz-keyframes fly-in {
   from {
-    right: -30rem;
+    -moz-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   50% {
-    right: -30rem;
+    -moz-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   to {
-    right: 2rem;
+    -moz-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @-webkit-keyframes fly-in {
   from {
-    right: -30rem;
+    -webkit-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   50% {
-    right: -30rem;
+    -webkit-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   to {
-    right: 2rem;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @keyframes fly-in {
   from {
-    right: -30rem;
+    -moz-transform: translateX(30rem);
+    -ms-transform: translateX(30rem);
+    -webkit-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   50% {
-    right: -30rem;
+    -moz-transform: translateX(30rem);
+    -ms-transform: translateX(30rem);
+    -webkit-transform: translateX(30rem);
+    transform: translateX(30rem);
   }
   to {
-    right: 2rem;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @-moz-keyframes darken {
@@ -233,16 +254,25 @@ for more details.
 .hero {
   display: block;
   height: 100%;
+}
+/* line 47, ../../src/scss/_hero.scss */
+.hero:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: transparent url('../img/background.jpg?1471117540') center center no-repeat;
   background-attachment: fixed;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-  transform-style: inherit;
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
-/* line 51, ../../src/scss/_hero.scss */
-.hero:before {
+/* line 60, ../../src/scss/_hero.scss */
+.hero:after {
   content: '';
   display: block;
   position: absolute;
@@ -255,7 +285,7 @@ for more details.
   -webkit-animation: 3s ease darken;
   animation: 3s ease darken;
 }
-/* line 63, ../../src/scss/_hero.scss */
+/* line 72, ../../src/scss/_hero.scss */
 .hero h1 {
   position: absolute;
   z-index: 1;
@@ -264,40 +294,48 @@ for more details.
   text-align: right;
   right: 2rem;
   bottom: 5rem;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
   -moz-animation: 6s ease-out fly-in;
   -webkit-animation: 6s ease-out fly-in;
   animation: 6s ease-out fly-in;
 }
 @media screen and (min-width: 600px) {
-  /* line 63, ../../src/scss/_hero.scss */
+  /* line 72, ../../src/scss/_hero.scss */
   .hero h1 {
     font-size: 700%;
   }
 }
-/* line 78, ../../src/scss/_hero.scss */
+/* line 88, ../../src/scss/_hero.scss */
 .hero p {
   position: absolute;
   z-index: 1;
   text-align: right;
   right: 2rem;
   bottom: 3.2rem;
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
   -moz-animation: 8s ease-out fly-in;
   -webkit-animation: 8s ease-out fly-in;
   animation: 8s ease-out fly-in;
 }
-/* line 87, ../../src/scss/_hero.scss */
+/* line 98, ../../src/scss/_hero.scss */
 .hero.hero-short {
   position: relative;
   height: auto;
   padding: 2rem;
 }
-/* line 92, ../../src/scss/_hero.scss */
+/* line 103, ../../src/scss/_hero.scss */
 .hero.hero-short:before {
   -moz-animation: none;
   -webkit-animation: none;
   animation: none;
 }
-/* line 96, ../../src/scss/_hero.scss */
+/* line 107, ../../src/scss/_hero.scss */
 .hero.hero-short h1 {
   position: relative;
   top: 0;
@@ -310,7 +348,7 @@ for more details.
   text-align: left;
   font-size: 200%;
 }
-/* line 107, ../../src/scss/_hero.scss */
+/* line 118, ../../src/scss/_hero.scss */
 .hero.hero-short p {
   display: none;
 }
@@ -358,17 +396,18 @@ for more details.
 */
 /* line 25, ../../src/scss/_gallery.scss */
 .gallery {
+  transform-style: inherit;
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
 }
-/* line 30, ../../src/scss/_gallery.scss */
+/* line 31, ../../src/scss/_gallery.scss */
 .gallery .gallery-entry {
   line-height: 0;
 }
-/* line 34, ../../src/scss/_gallery.scss */
+/* line 35, ../../src/scss/_gallery.scss */
 .gallery .gallery-image {
   width: 100%;
 }

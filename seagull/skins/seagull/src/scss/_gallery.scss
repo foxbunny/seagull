@@ -23,6 +23,7 @@ for more details.
 
 
 .gallery {
+  transform-style: inherit;
   @include box-shadow(0 0 10px transparentize(black, 0.5));
   position: relative;
   z-index: 1;
