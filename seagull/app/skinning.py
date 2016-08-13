@@ -13,7 +13,7 @@
 # details.
 #
 
-from os.path import normpath, join
+from os.path import normpath, join, isdir
 
 from seagull import __appdir__
 
@@ -26,7 +26,13 @@ def configure(conf):
     Configure a seagull to use templates and assets from specified skin
     """
     skin = conf.get('seagull.skin', DEFAULT_SKIN)
-    skin_path = normpath(join(__appdir__, 'skins', skin))
+    extra_skins = conf.get('seagull.extra_skins')
+    skin_path = ''
+    if extra_skins:
+        # Let's try the extra skins directory first
+        skin_path = normpath(join(extra_skins, skin))
+    if not isdir(skin_path):
+        skin_path = normpath(join(__appdir__, 'skins', skin))
     templates_dir = join(skin_path, 'templates')
     assets_dir = join(skin_path, 'assets')
     conf['runtime.skin_templates_dir'] = templates_dir
