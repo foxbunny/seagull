@@ -1,0 +1,1 @@
+""  else copy /B seagull\skins\seagull\templates\.empty+,, seagull\skins\seagull\templates\.empty

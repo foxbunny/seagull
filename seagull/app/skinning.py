@@ -29,5 +29,5 @@ def configure(conf):
     skin_path = normpath(join(__appdir__, 'skins', skin))
     templates_dir = join(skin_path, 'templates')
     assets_dir = join(skin_path, 'assets')
-    conf['runtime.templates_dir'] = templates_dir
+    conf['runtime.skin_templates_dir'] = templates_dir
     conf['runtime.assets_dir'] = assets_dir

@@ -20,8 +20,11 @@ from streamline import (
     TemplateRoute as StreamlineTemplateRoute,
     XHRPartialRoute as StreamlineXHRPartialRoute)
 
+from seagull import __appdir__
+
 
 DEFAULT_CACHE = '/tmp/seagull-template-cache'
+DEFAULT_TEMPLATES_DIR = os.path.join(__appdir__, 'default_templates')
 TEMPLATE_CONFIG = {
     'lookup': None,
     'defaults': {},
@@ -32,8 +35,9 @@ def configure(conf, **options):
     debug = conf.get('seagull.debug')
     cache_dir = conf.get('seagull.template_cache', DEFAULT_CACHE)
     defaults = conf['runtime.template_defaults']
-    templates_dir = conf['runtime.templates_dir']
-    TEMPLATE_CONFIG['lookup'] = TemplateLookup(directories=[templates_dir],
+    templates_dirs = [conf['runtime.skin_templates_dir'],
+                      DEFAULT_TEMPLATES_DIR]
+    TEMPLATE_CONFIG['lookup'] = TemplateLookup(directories=templates_dirs,
                                                filesystem_checks=debug,
                                                module_directory=cache_dir,
                                                **options)
