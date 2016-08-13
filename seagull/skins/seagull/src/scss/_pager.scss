@@ -1,0 +1,50 @@
+/*
+
+SEAGULL THEME // Pager
+
+This module contains pager styling.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+
+@import "compass/css3";
+@import "colors";
+
+$animation-speed: 0.3s;
+
+.pager {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+
+  .pager-page {
+    display: inline-block;
+    border: 1px solid $text;
+    background-color: $background;
+    padding: 0.7rem 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    @include transition(color $animation-speed, background-color $animation-speed);
+
+    &:visited {
+      color: $text;
+    }
+
+    &:hover {
+      color: $background;
+      background-color: $text;
+    }
+  }
+}

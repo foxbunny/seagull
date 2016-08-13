@@ -37,7 +37,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="initial-scale=1">
         <title><%block name="title"/></title>
         <link rel="stylesheet" href="${assets['css/app']}">
         <%block name="extra_head"/>

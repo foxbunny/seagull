@@ -1,0 +1,111 @@
+/*
+
+SEAGULL THEME // Hero
+
+Hero area styling
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+
+@include keyframes(fly-in) {
+  from {
+    right: -30rem;
+  }
+  50% {
+    right: -30rem;
+  }
+  to {
+    right: 2rem;
+  }
+}
+
+@include keyframes(darken) {
+  from {
+    background: transparentize(black, 1);
+  }
+  to {
+    background: transparentize(black, 0.4);
+  }
+}
+
+.hero {
+  display: block;
+  height: 100%;
+  background: transparent image-url('background.jpg') center center no-repeat;
+  background-attachment: fixed;
+  @include background-size(cover);
+  transform-style: inherit;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparentize(black, 0.4);
+    @include animation(3s ease darken);
+  }
+
+  h1 {
+    position: absolute;
+    z-index: 1;
+    font-size: 400%;
+    line-height: 110%;
+    text-align: right;
+    right: 2rem;
+    bottom: 5rem;
+    @include animation(6s ease-out fly-in);
+
+    @media screen and (min-width: 600px) {
+      font-size: 700%;
+    }
+  }
+
+  p {
+    position: absolute;
+    z-index: 1;
+    text-align: right;
+    right: 2rem;
+    bottom: 3.2rem;
+    @include animation(8s ease-out fly-in);
+  }
+
+  &.hero-short {
+    position: relative;
+    height: auto;
+    padding: 2rem;
+
+    &:before {
+      @include animation(none);
+    }
+
+    h1 {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include animation(none);
+      text-align: left;
+      font-size: 200%;
+    }
+
+    p {
+      display: none;
+    }
+  }
+}

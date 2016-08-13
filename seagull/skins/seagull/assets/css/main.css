@@ -1,4 +1,24 @@
-/* line 5, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+
+SEAGULL THEME // Main module
+
+This module combines all partials together in the main theme SCSS.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/* line 5, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +40,405 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.gem/ruby/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../../../Ruby23/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+}
+
+/*
+
+SEAGULL THEME // Layout
+
+This module defines the base page layout, including colors, font styles, and
+similar.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/*
+
+SEAGULL THEME // Color definitions
+
+This module contains the authoritative information on all colors used in the
+theme.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/* line 26, ../../src/scss/_layout.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 32, ../../src/scss/_layout.scss */
+body {
+  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  background: #333;
+  color: #eee;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* line 43, ../../src/scss/_layout.scss */
+a {
+  color: #eee;
+}
+/* line 46, ../../src/scss/_layout.scss */
+a:visited {
+  color: #bbbbbb;
+}
+
+/*
+
+SEAGULL THEME // Hero
+
+Hero area styling
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+@-moz-keyframes fly-in {
+  from {
+    right: -30rem;
+  }
+  50% {
+    right: -30rem;
+  }
+  to {
+    right: 2rem;
+  }
+}
+@-webkit-keyframes fly-in {
+  from {
+    right: -30rem;
+  }
+  50% {
+    right: -30rem;
+  }
+  to {
+    right: 2rem;
+  }
+}
+@keyframes fly-in {
+  from {
+    right: -30rem;
+  }
+  50% {
+    right: -30rem;
+  }
+  to {
+    right: 2rem;
+  }
+}
+@-moz-keyframes darken {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+@-webkit-keyframes darken {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+@keyframes darken {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+/* line 43, ../../src/scss/_hero.scss */
+.hero {
+  display: block;
+  height: 100%;
+  background: transparent url('../img/background.jpg?1471117540') center center no-repeat;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  transform-style: inherit;
+}
+/* line 51, ../../src/scss/_hero.scss */
+.hero:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -moz-animation: 3s ease darken;
+  -webkit-animation: 3s ease darken;
+  animation: 3s ease darken;
+}
+/* line 63, ../../src/scss/_hero.scss */
+.hero h1 {
+  position: absolute;
+  z-index: 1;
+  font-size: 400%;
+  line-height: 110%;
+  text-align: right;
+  right: 2rem;
+  bottom: 5rem;
+  -moz-animation: 6s ease-out fly-in;
+  -webkit-animation: 6s ease-out fly-in;
+  animation: 6s ease-out fly-in;
+}
+@media screen and (min-width: 600px) {
+  /* line 63, ../../src/scss/_hero.scss */
+  .hero h1 {
+    font-size: 700%;
+  }
+}
+/* line 78, ../../src/scss/_hero.scss */
+.hero p {
+  position: absolute;
+  z-index: 1;
+  text-align: right;
+  right: 2rem;
+  bottom: 3.2rem;
+  -moz-animation: 8s ease-out fly-in;
+  -webkit-animation: 8s ease-out fly-in;
+  animation: 8s ease-out fly-in;
+}
+/* line 87, ../../src/scss/_hero.scss */
+.hero.hero-short {
+  position: relative;
+  height: auto;
+  padding: 2rem;
+}
+/* line 92, ../../src/scss/_hero.scss */
+.hero.hero-short:before {
+  -moz-animation: none;
+  -webkit-animation: none;
+  animation: none;
+}
+/* line 96, ../../src/scss/_hero.scss */
+.hero.hero-short h1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -moz-animation: none;
+  -webkit-animation: none;
+  animation: none;
+  text-align: left;
+  font-size: 200%;
+}
+/* line 107, ../../src/scss/_hero.scss */
+.hero.hero-short p {
+  display: none;
+}
+
+/*
+
+SEAGULL THEME // Gallery
+
+Gallery-specific styling.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/*
+
+SEAGULL THEME // Color definitions
+
+This module contains the authoritative information on all colors used in the
+theme.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/* line 25, ../../src/scss/_gallery.scss */
+.gallery {
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+/* line 30, ../../src/scss/_gallery.scss */
+.gallery .gallery-entry {
+  line-height: 0;
+}
+/* line 34, ../../src/scss/_gallery.scss */
+.gallery .gallery-image {
+  width: 100%;
+}
+
+/*
+
+SEAGULL THEME // Pager
+
+This module contains pager styling.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/*
+
+SEAGULL THEME // Color definitions
+
+This module contains the authoritative information on all colors used in the
+theme.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+/* line 27, ../../src/scss/_pager.scss */
+.pager {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+}
+/* line 32, ../../src/scss/_pager.scss */
+.pager .pager-page {
+  display: inline-block;
+  border: 1px solid #eee;
+  background-color: #333;
+  padding: 0.7rem 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  -moz-transition: color 0.3s, background-color 0.3s;
+  -o-transition: color 0.3s, background-color 0.3s;
+  -webkit-transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s;
+}
+/* line 41, ../../src/scss/_pager.scss */
+.pager .pager-page:visited {
+  color: #eee;
+}
+/* line 45, ../../src/scss/_pager.scss */
+.pager .pager-page:hover {
+  color: #333;
+  background-color: #eee;
 }

@@ -1,0 +1,49 @@
+/*
+
+SEAGULL THEME // Layout
+
+This module defines the base page layout, including colors, font styles, and
+similar.
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+
+@import "compass/css3";
+@import "colors";
+
+html, body {
+  // Set the body and the page to viewport width and height
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  background: $background;
+  color: $text;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  color: $text;
+
+  &:visited {
+    color: darken($text, 20);
+  }
+}

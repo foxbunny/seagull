@@ -1,10 +1,6 @@
 <%doc>
-    Gallery elements
-    ================
-
-    This template contains fragments that are used to construct the gallery 
-    list. The defs in this template are used in the ``main.mako`` template, so 
-    look there for example usage.
+    Gallery main page
+    =================
 
     Seagull photo gallery app
     Copyright (C) 2016  Hajime Yamasaki Vukelic
@@ -20,14 +16,8 @@
     more details.
 </%doc>
 
-<%def name="image(entry)">
-    <li class="gallery-entry" data-path="${gallery.get_urlpath(entry)}">
-    <img class="gallery-image" src="${url('gallery:image', path=gallery.get_urlpath(entry))}">
-    </li>
-</%def>
+<%inherit file="/base.mako"/>
 
-<%def name="list()">
-    %for entry in pager:
-        ${self.image(entry)}
-    %endfor
-</%def>
+<%block name="title">Gallery reindex</%block>
+
+<p>Gallery was rescanned.</p>

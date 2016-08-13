@@ -22,5 +22,17 @@
 
 <%block name="title">Seagull photo gallery | page ${pager.current_page}</%block>
 
-${images.list()}
+<heading class="hero${' hero-short' if pager.has_prev else ''}" id="hero">
+<h1>
+    Seagull
+</h1>
+<p>
+    Open-source skinnable photo gallery app.
+</p>
+</heading>
+<section id="gallery" class="gallery">
+<ul class="gallery-list">
+    ${images.list()}
+</ul>
+</section>
 ${paging.simple_pager()}

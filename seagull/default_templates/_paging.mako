@@ -35,12 +35,12 @@
 <%def name="simple_pager()">
     <p class="pager">
         %if pager.has_prev:
-            <a href="${url('gallery:main', page=pager.prev_page)}" class="pager-prev">
+            <a href="${url('gallery:main', page=pager.prev_page)}" class="pager-prev pager-page">
                 previous
             </a>
         %endif
         %if pager.has_next:
-            <a href="${url('gallery:main', page=pager.next_page)}" class="pager-next">
+            <a href="${url('gallery:main', page=pager.next_page)}" class="pager-next pager-page">
                 next
             </a>
         %endif

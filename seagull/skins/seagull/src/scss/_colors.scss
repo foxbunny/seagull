@@ -1,8 +1,9 @@
 /*
 
-SEAGULL THEME // Main module
+SEAGULL THEME // Color definitions
 
-This module combines all partials together in the main theme SCSS.
+This module contains the authoritative information on all colors used in the
+theme.
 
 
 Seagull photo gallery app
@@ -19,8 +20,5 @@ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 for more details.
 */
 
-@import "compass/reset";
-@import "layout";
-@import "hero";
-@import "gallery";
-@import "pager";
+$background: #333;
+$text: #eee;
