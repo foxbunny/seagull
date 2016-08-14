@@ -3,8 +3,7 @@
     ================
 
     This template contains fragments that are used to construct the gallery 
-    list. The defs in this template are used in the ``main.mako`` template, so 
-    look there for example usage.
+    image list.
 
     Seagull photo gallery app
     Copyright (C) 2016  Hajime Yamasaki Vukelic
@@ -20,14 +19,8 @@
     more details.
 </%doc>
 
-<%def name="image(entry)">
+%for entry in pager:
     <li class="gallery-entry" data-path="${gallery.get_urlpath(entry)}">
     <img class="gallery-image" src="${url('gallery:image', path=gallery.get_urlpath(entry))}">
     </li>
-</%def>
-
-<%def name="list()">
-    %for entry in pager:
-        ${self.image(entry)}
-    %endfor
-</%def>
+%endfor

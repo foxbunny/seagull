@@ -35,7 +35,7 @@
 </heading>
 <section id="gallery" class="gallery">
 <ul class="gallery-list">
-    ${images.list()}
+    ${images.body()}
 </ul>
 </section>
 ${paging.simple_pager()}
