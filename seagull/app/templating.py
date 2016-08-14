@@ -37,8 +37,10 @@ def configure(conf, **options):
     defaults = conf['runtime.template_defaults']
     templates_dirs = [conf['runtime.skin_templates_dir'],
                       DEFAULT_TEMPLATES_DIR]
+    default_filters = ['unicode', 'h']
     TEMPLATE_CONFIG['lookup'] = TemplateLookup(directories=templates_dirs,
                                                filesystem_checks=debug,
+                                               default_filters=default_filters,
                                                module_directory=cache_dir,
                                                **options)
     TEMPLATE_CONFIG['defaults'] = defaults
