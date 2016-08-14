@@ -1,6 +1,6 @@
-=======
-Seagull
-=======
+==================
+Seagull user guide
+==================
 
 Seagull is an open-source skinnable phot gallery app written in Python and
 released under the GNU General Public License.
