@@ -6,23 +6,27 @@
 Seagull
 =======
 
-Photography folio site w/ FTP support.
+Open-source skinnable photo gallery app.
 
 .. note::
-    This program is currently alpha, and doesn't do anything useful.
+    This program is currently alpha, and detailed documentation is on its way.
 
 Overview
 ========
 
-Seagull is a simple generic photo gallery app with FTP upload support. The
-project is still incomplete so don't expect anything to work just yet. When
-it's finished, it will have the following features:
+Seagull is a simple generic photo gallery app with support for skinning and
+easy maintenance of gallery and its metadata. The project is still incomplete
+so don't expect anything to work 100% just yet. When it's finished, it will
+have the following features:
 
-- Full support for social metadata
-- Completely skinnable (CSS/HTML/JavaScript)
-- Built-in FTP server for managing the photos
-- Ability to scale reasonabily well on modest hardware
-- Full developer documentation
+- [x] Built on top of Python 3.5, no compromises made
+- [x] Completely skinnable (CSS/HTML/JavaScript)
+- [x] Fast asyncrhonous backend
+- [x] Easy filesystem-based maintenance
+- [x] Cross-platform support (Linux and Windows, OSX might work too)
+- [ ] Full support for social metadata
+- [ ] Built-in FTP server
+- [ ] Full user and developer documentation
 
 Installing
 ==========
