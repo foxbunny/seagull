@@ -1,4 +1,4 @@
-.. image:: img/seagull.png
+.. image:: doc/source/img/seagull_color.png
     :alt: Seagull logo
     :align: left
 
