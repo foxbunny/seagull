@@ -42,8 +42,9 @@
     ${self.contact_detail('Email', metadata.contact.email)}
     ${self.contact_detail('Facebook', metadata.contact.facebook)}
     ${self.contact_detail('Twitter', metadata.contact.twitter)}
+    ${self.contact_detail('YouTube', metadata.contact.youtube)}
     ${self.contact_detail('Flickr', metadata.contact.flickr)}
-    ${self.contact_detail('LinkedIn', metadata.contact.linkedin)}
     ${self.contact_detail('Google', metadata.contact.googleplus)}
+    ${self.contact_detail('LinkedIn', metadata.contact.linkedin)}
 </ul>
 </section>

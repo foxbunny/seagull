@@ -41,6 +41,7 @@ class Contact:
     flickr = url_method('https://www.flickr.com/photos/{}', 'flickr')
     linkedin = url_method('https://www.linkedin.com/in/{}', 'linkedin')
     googleplus = url_method('https://plus.google.com/+{}', 'googleplus')
+    youtube = url_method('https://www.youtube.com/channel/{}', 'youtube')
 
 
 class Metadata:
