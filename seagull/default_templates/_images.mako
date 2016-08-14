@@ -20,7 +20,7 @@
 </%doc>
 
 %for entry in pager:
-    <li class="gallery-entry" data-path="${gallery.get_urlpath(entry)}">
-    <img class="gallery-image" src="${url('gallery:image', path=gallery.get_urlpath(entry))}">
-    </li>
+<li class="gallery-entry" data-path="${gallery.get_urlpath(entry)}">\
+<img class="gallery-image" src="${url('gallery:image', path=gallery.get_urlpath(entry))}">\
+</li>\
 %endfor
