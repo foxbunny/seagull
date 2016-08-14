@@ -1,0 +1,57 @@
+/*
+
+SEAGULL THEME // Navbar
+
+Navigation bar styling
+
+
+Seagull photo gallery app
+Copyright (C) 2016  Hajime Yamasaki Vukelic
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+*/
+
+.navigation {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem 2rem;
+  background: transparentize(black, 0.4);
+  @include transition(background-color 0.3s);
+
+  &:hover {
+    background: transparentize(black, 0);
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 90%;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 400px) {
+      letter-spacing: 0;
+    }
+  }
+}

@@ -23,7 +23,7 @@
 
 <%block name="title">Seagull photo gallery | page ${pager.current_page}</%block>
 
-<heading class="hero${' hero-short' if pager.has_prev else ''}" id="hero">
+<heading class="hero${' hero-short' if pager.has_prev else ''}" id="top">
 <h1>
     %if pager.has_prev:
     <a href="${url('gallery:main')}" class="logo">
@@ -39,6 +39,17 @@
 <p>
     Open-source skinnable photo gallery app.
 </p>
+<nav id="navigation" class="navigation">
+    <% prefix = url('gallery:main') if pager.has_prev else '' %>
+    <a href="#top">Top</a>
+    %if metadata.about:
+        <a href="${prefix}#about">About</a>
+    %endif
+    <a href="${prefix}#gallery">Gallery</a>
+    %if metadata.contact:
+        <a href="${prefix}#contact">Contact</a>
+    %endif
+</nav>
 </heading>
 
 %if not pager.has_prev and metadata.about:

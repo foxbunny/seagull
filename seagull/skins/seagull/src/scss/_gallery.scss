@@ -21,9 +21,9 @@ for more details.
 
 @import "colors";
 
+$gallery-style: vertical;
 
 .gallery {
-  transform-style: inherit;
   position: relative;
   z-index: 1;
 
