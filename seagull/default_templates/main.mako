@@ -21,7 +21,7 @@
 <%namespace name="paging" file="/_paging.mako"/>
 <%namespace name="contact" file="/_contact.mako"/>
 
-<%block name="title">Seagull photo gallery | page ${pager.current_page}</%block>
+<%block name="title">${metadata.title} | page ${pager.current_page}</%block>
 
 <heading class="hero${' hero-short' if pager.has_prev else ''}" id="top">
 <h1>
@@ -31,13 +31,13 @@
     <span class="logo">
         <img src="${url('app:static', path='img/logo.png')}">
     </span>
-    Seagull
+    ${metadata.title}
     %if pager.has_prev:
     </a>
     %endif
 </h1>
 <p>
-    Open-source skinnable photo gallery app.
+    ${metadata.description}
 </p>
 <nav id="navigation" class="navigation">
     <% prefix = url('gallery:main') if pager.has_prev else '' %>
