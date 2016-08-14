@@ -148,5 +148,6 @@ class Recompile(AssetsCommand):
     description = 'recompile the CoffeeScript and Compass watchers'
 
     def run(self):
-        subprocess.check_call(self.compass_cmd('compile', '--force'))
-        subprocess.check_call(self.coffee_cmd('--compile'))
+        subprocess.check_call(self.compass_cmd('compile', '--force'),
+                              shell=True)
+        subprocess.check_call(self.coffee_cmd('--compile'), shell=True)

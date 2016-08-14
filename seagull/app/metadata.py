@@ -18,16 +18,12 @@ from os.path import normpath, join
 from ..gallery.metadata import Metadata
 
 
-
-
 def configure(conf):
     gallery_dir = conf['runtime.gallery_dir']
     title = conf['seagull.title']
     description = conf['seagull.description']
     author = conf['seagull.author']
     copyright = conf['seagull.copyright']
-    about = join(gallery_dir, normpath(conf['seagull.about_file']))
-    contact = join(gallery_dir, normpath(conf['seagull.contact_file']))
-    metadata = Metadata(title, description, author, copyright, about, contact)
+    metadata = Metadata(title, description, author, copyright, gallery_dir)
     conf['runtime.metadata'] = metadata
     conf['runtime.template_defaults']['metadata'] = metadata

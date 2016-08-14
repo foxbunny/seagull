@@ -52,7 +52,10 @@ for more details.
     left: 0;
     right: 0;
     bottom: 0;
-    background: transparent image-url('background.jpg') center center no-repeat;
+    background: transparent;
+    background-image: url('/gallery/_cover.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     @include transform(scale(1.1));
   }
@@ -90,21 +93,6 @@ for more details.
     }
   }
 
-  .logo {
-    display: block;
-    text-align: right;
-
-    img {
-      width: image-width('logo.png') / 2;
-      height: image-height('logo.png') / 2;
-
-      @media screen and (min-width: 600px) {
-        width: image-width('logo.png') / 3;
-        height: image-height('logo.png') / 3;
-      }
-    }
-  }
-
   p {
     position: absolute;
     z-index: 1;
@@ -134,15 +122,6 @@ for more details.
       @include animation(none);
       text-align: left;
       font-size: 200%;
-    }
-
-    .logo {
-      display: inline-block;
-
-      img {
-        width: image-width('logo.png') / 4;
-        height: image-height('logo.png') / 4;
-      }
     }
 
     p {

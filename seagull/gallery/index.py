@@ -35,7 +35,7 @@ class Entry:
     - path is a directory
     - path has no extension
     - path has an extenion that is not supported
-    - path starts with a dot
+    - path starts with an underscore
     - file at the path has 0 size
 
     """
@@ -82,7 +82,7 @@ class Entry:
         # Is a directory
         if dentry.is_dir():
             raise ValueError('{} is a directory'.format(path))
-        if dentry.name.startswith('.'):
+        if dentry.name.startswith('_'):
             raise ValueError('{} starts with a dot'.format(path))
         if dentry.stat().st_size <= 0:
             raise ValueError('{} is an empty file'.format(path))

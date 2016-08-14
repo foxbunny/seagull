@@ -14,6 +14,8 @@
 #
 
 import datetime
+import functools
+from os.path import join
 
 import markdown
 
@@ -44,20 +46,21 @@ class Contact:
 
 
 class Metadata:
-    def __init__(self, title, desc, author, copyright, about, contact):
+    def __init__(self, title, desc, author, copyright, gallery_dir):
         self.title = title
         self.description = desc
         self.author = author
         self.copyright_year = copyright
-        self.about_file = about
-        self.contact_file = contact
+        self.gallery_dir = gallery_dir
+        self.cover = None
+        self.logo = None
         self.about = ''
         self.contact = ''
         self.reload()
 
     def reload(self):
-        self.about = self.get_html(self.about_file)
-        self.contact = self.get_kval(self.contact_file)
+        self.about = self.get_html(join(self.gallery_dir, '_about.mkd'))
+        self.contact = self.get_kval(join(self.gallery_dir, '_contact.info'))
 
     @property
     def copyright_range(self):

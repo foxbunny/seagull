@@ -28,9 +28,6 @@
     %if pager.has_prev:
     <a href="${url('gallery:main')}" class="logo">
     %endif
-    <span class="logo">
-        <img src="${url('app:static', path='img/logo.png')}">
-    </span>
     ${metadata.title}
     %if pager.has_prev:
     </a>
