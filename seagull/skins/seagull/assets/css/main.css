@@ -290,7 +290,7 @@ for more details.
   position: absolute;
   z-index: 1;
   font-size: 400%;
-  line-height: 110%;
+  line-height: 100%;
   text-align: right;
   right: 2rem;
   bottom: 5rem;
@@ -309,6 +309,23 @@ for more details.
   }
 }
 /* line 88, ../../src/scss/_hero.scss */
+.hero .logo {
+  display: block;
+  text-align: right;
+}
+/* line 92, ../../src/scss/_hero.scss */
+.hero .logo img {
+  width: 152px;
+  height: 146px;
+}
+@media screen and (min-width: 600px) {
+  /* line 92, ../../src/scss/_hero.scss */
+  .hero .logo img {
+    width: 101.33333px;
+    height: 97.33333px;
+  }
+}
+/* line 103, ../../src/scss/_hero.scss */
 .hero p {
   position: absolute;
   z-index: 1;
@@ -322,20 +339,21 @@ for more details.
   -moz-animation: 8s ease-out fly-in;
   -webkit-animation: 8s ease-out fly-in;
   animation: 8s ease-out fly-in;
+  white-space: nowrap;
 }
-/* line 98, ../../src/scss/_hero.scss */
+/* line 114, ../../src/scss/_hero.scss */
 .hero.hero-short {
   position: relative;
   height: auto;
   padding: 2rem;
 }
-/* line 103, ../../src/scss/_hero.scss */
+/* line 119, ../../src/scss/_hero.scss */
 .hero.hero-short:before {
   -moz-animation: none;
   -webkit-animation: none;
   animation: none;
 }
-/* line 107, ../../src/scss/_hero.scss */
+/* line 123, ../../src/scss/_hero.scss */
 .hero.hero-short h1 {
   position: relative;
   top: 0;
@@ -348,7 +366,16 @@ for more details.
   text-align: left;
   font-size: 200%;
 }
-/* line 118, ../../src/scss/_hero.scss */
+/* line 134, ../../src/scss/_hero.scss */
+.hero.hero-short .logo {
+  display: inline-block;
+}
+/* line 137, ../../src/scss/_hero.scss */
+.hero.hero-short .logo img {
+  width: 76px;
+  height: 73px;
+}
+/* line 143, ../../src/scss/_hero.scss */
 .hero.hero-short p {
   display: none;
 }

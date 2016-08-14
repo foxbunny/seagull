@@ -73,7 +73,7 @@ for more details.
     position: absolute;
     z-index: 1;
     font-size: 400%;
-    line-height: 110%;
+    line-height: 100%;
     text-align: right;
     right: 2rem;
     bottom: 5rem;
@@ -85,6 +85,21 @@ for more details.
     }
   }
 
+  .logo {
+    display: block;
+    text-align: right;
+
+    img {
+      width: image-width('logo.png') / 2;
+      height: image-height('logo.png') / 2;
+
+      @media screen and (min-width: 600px) {
+        width: image-width('logo.png') / 3;
+        height: image-height('logo.png') / 3;
+      }
+    }
+  }
+
   p {
     position: absolute;
     z-index: 1;
@@ -93,6 +108,7 @@ for more details.
     bottom: 3.2rem;
     @include transform(translateX(0));
     @include animation(8s ease-out fly-in);
+    white-space: nowrap;
   }
 
   &.hero-short {
@@ -113,6 +129,15 @@ for more details.
       @include animation(none);
       text-align: left;
       font-size: 200%;
+    }
+
+    .logo {
+      display: inline-block;
+
+      img {
+        width: image-width('logo.png') / 4;
+        height: image-height('logo.png') / 4;
+      }
     }
 
     p {

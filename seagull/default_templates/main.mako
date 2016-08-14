@@ -24,6 +24,9 @@
 
 <heading class="hero${' hero-short' if pager.has_prev else ''}" id="hero">
 <h1>
+    <span class="logo">
+        <img src="${url('app:static', path='img/logo.png')}">
+    </span>
     Seagull
 </h1>
 <p>
