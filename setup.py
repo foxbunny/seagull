@@ -42,11 +42,11 @@ setup(
         'bottle==0.12.9',
         'bottle-streamline==1.0',
         'confloader==1.1',
-        'pyftpdlib==1.5.1',
         'Mako==1.0.4',
         'gevent==1.1.2',
         'cssmin==0.2.0',
         'webassets==0.11.1',
+        'Markdown==2.6.6',
     ],
     entry_points={
         'console_scripts': [

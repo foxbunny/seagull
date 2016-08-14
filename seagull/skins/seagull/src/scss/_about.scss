@@ -1,8 +1,8 @@
 /*
 
-SEAGULL THEME // Main module
+SEAGULL THEME // About
 
-This module combines all partials together in the main theme SCSS.
+About section styling
 
 
 Seagull photo gallery app
@@ -19,10 +19,13 @@ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 for more details.
 */
 
-@import "compass/reset";
-@import "layout";
-@import "hero";
-@import "about";
-@import "gallery";
-@import "pager";
-@import "contact";
+@import "colors";
+
+.about {
+  display: block;
+  position: relative;
+  z-index: 1;
+  background: $light-grey;
+  padding: 2rem;
+  color: $dark-grey;
+}

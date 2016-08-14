@@ -19,6 +19,7 @@
 <%inherit file="/base.mako"/>
 <%namespace name="images" file="/_images.mako"/>
 <%namespace name="paging" file="/_paging.mako"/>
+<%namespace name="contact" file="/_contact.mako"/>
 
 <%block name="title">Seagull photo gallery | page ${pager.current_page}</%block>
 
@@ -33,9 +34,21 @@
     Open-source skinnable photo gallery app.
 </p>
 </heading>
+
+%if not pager.has_prev and metadata.about:
+    <section id="about" class="about">
+    ${metadata.about | n,unicode}
+    </section>
+%endif
+
 <section id="gallery" class="gallery">
 <ul class="gallery-list">
     ${images.body()}
 </ul>
 </section>
+
 ${paging.simple_pager()}
+
+%if metadata.contact:
+    ${contact.body()}
+%endif

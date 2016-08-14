@@ -1,8 +1,8 @@
 /*
 
-SEAGULL THEME // Main module
+SEAGULL THEME // Contacts
 
-This module combines all partials together in the main theme SCSS.
+Styling for the contacts section
 
 
 Seagull photo gallery app
@@ -19,10 +19,22 @@ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 for more details.
 */
 
-@import "compass/reset";
-@import "layout";
-@import "hero";
-@import "about";
-@import "gallery";
-@import "pager";
-@import "contact";
+@import "colors";
+
+.contact {
+  background: darken($background, 10);
+  padding: 1.5rem;
+  font-size: 90%;
+  text-align: center;
+
+  .contact-detail {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+}
+

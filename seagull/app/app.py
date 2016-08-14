@@ -26,7 +26,7 @@ import confloader
 import gevent.pywsgi
 
 from ..routes import ROUTES
-from . import logger, skinning, templating, assets, gallery
+from . import logger, skinning, templating, assets, gallery, metadata
 
 try:
     import pwd, grp
@@ -191,6 +191,7 @@ class App:
         templating.configure(self.conf)
         assets.configure(self.conf)
         gallery.configure(self.conf)
+        metadata.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:

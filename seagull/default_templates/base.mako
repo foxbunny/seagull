@@ -38,12 +38,19 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="initial-scale=1">
+        <meta name="description" content="${metadata.description}">
         <title><%block name="title"/></title>
         <link rel="stylesheet" href="${assets['css/app']}">
         <%block name="extra_head"/>
     </head>
     <body class="<%block name="body_class"/>">
         ${self.body()}
+        <footer id="footer" class="footer">
+            <p class="copyright">
+                &copy; ${metadata.copyright_range} ${metadata.author}.
+                All rights reserved.
+            </p>
+        </footer>
         <%block name="pre_script"/>
         <script src="${assets['js/app']}"></script>
         <%block name="post_script"/>

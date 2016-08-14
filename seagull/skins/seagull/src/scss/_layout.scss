@@ -29,6 +29,10 @@ html, body {
   height: 100%;
 }
 
+* {
+  @include box-sizing(border-box);
+}
+
 body {
   font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
@@ -45,6 +49,16 @@ a {
   &:visited {
     color: darken($text, 20);
   }
+}
+
+h2 {
+  font-size: 200%;
+  line-height: 110%;
+  margin: 2rem 0 3rem;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 footer {

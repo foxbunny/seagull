@@ -50,6 +50,6 @@ class Reindex(TemplateRoute):
     template_name = 'reset.mako'
 
     def get(self, token):
-        index = self.config['runtime.gallery']
-        index.rescan()
+        self.config['runtime.gallery'].rescan()
+        self.config['runtime.metadata'].reload()
         return {}
