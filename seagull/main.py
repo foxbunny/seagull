@@ -37,6 +37,15 @@ from seagull.app import App
 
 DEFAULT_CONF = os.path.join(__appdir__, 'seagull.ini')
 DEFAULT_PID = '/var/run/seagull.pid'
+CONFIGURATION_TEMPLATE = """[config]
+
+defaults =
+  {path}
+
+[seagull]
+
+# Add your settings below this line
+"""
 
 bottle.DEBUG = True
 
@@ -58,10 +67,18 @@ def main():
     parser.add_argument('--stop', '-S', action='store_true',
                         help='stop an instance that would otherwise be '
                         'started with given options')
+    parser.add_argument('--custom-conf', '-C', metavar='PATH',
+                        help='create the custom configuration template')
     args = parser.parse_args()
 
     if args.version:
         print(__version__)
+        return 0
+
+    if args.custom_conf:
+        conf_path = os.path.abspath(os.path.join(__appdir__, 'seagull.ini'))
+        with open(args.custom_conf, 'w') as f:
+            f.write(CONFIGURATION_TEMPLATE.format(path=conf_path))
         return 0
 
     if args.stop:
