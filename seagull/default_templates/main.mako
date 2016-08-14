@@ -25,10 +25,16 @@
 
 <heading class="hero${' hero-short' if pager.has_prev else ''}" id="hero">
 <h1>
+    %if pager.has_prev:
+    <a href="${url('gallery:main')}" class="logo">
+    %endif
     <span class="logo">
         <img src="${url('app:static', path='img/logo.png')}">
     </span>
     Seagull
+    %if pager.has_prev:
+    </a>
+    %endif
 </h1>
 <p>
     Open-source skinnable photo gallery app.
