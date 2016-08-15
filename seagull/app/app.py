@@ -262,7 +262,6 @@ class App:
 
     def loop(self):
         while self.running:
-            logging.debug('Background loop tick')
             gevent.sleep(self.LOOP_INTERVAL)
 
     @staticmethod
