@@ -14,6 +14,7 @@
 #
 
 import os
+import sys
 import logging
 
 from ..gallery.index import Index
@@ -28,7 +29,12 @@ def configure(conf):
     """
     gallery_dir = conf.get('seagull.gallery_dir', DEFAULT_DIR)
     gallery_dir = os.path.abspath(os.path.normpath(gallery_dir))
-    index = Index(gallery_dir)
+    try:
+        index = Index(gallery_dir)
+    except ValueError:
+        # the gallery directory did not exist
+        logging.critical("Quitting, no gallery directory '%s'", gallery_dir)
+        sys.exit(1)
     index.rescan()
     conf['runtime.gallery_dir'] = gallery_dir
     conf['runtime.gallery'] = index
