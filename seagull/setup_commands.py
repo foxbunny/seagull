@@ -98,6 +98,10 @@ class Watch(AssetsCommand):
 
     def run(self):
         if hasattr(subprocess, 'CREATE_NEW_PROCESS_GROUP'):
+            # On Windows, commands are run in a subshell regardless of the
+            # ``shell`` argument unless CREATE_NEW_PROCESS_GROUP flag is used.
+            # This flag is not supported on *nix platforms, so we test that the
+            # flag is supposed instead of testing for platform.
             popen_kw = dict(creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
         else:
             popen_kw = {}
