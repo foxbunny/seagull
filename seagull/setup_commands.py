@@ -97,12 +97,12 @@ class Watch(AssetsCommand):
             f.write(str(pid))
 
     def run(self):
-        compass = subprocess.Popen(
-            self.compass_cmd('watch'),
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
-        coffee = subprocess.Popen(
-            self.coffee_cmd('--watch'),
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
+        if hasattr(subprocess, 'CREATE_NEW_PROCESS_GROUP'):
+            popen_kw = dict(creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
+        else:
+            popen_kw = {}
+        compass = subprocess.Popen(self.compass_cmd('watch'), **popen_kw)
+        coffee = subprocess.Popen(self.coffee_cmd('--watch'), **popen_kw)
         print('pid for Compass is {}'.format(compass.pid))
         self.write_pid(compass.pid, COMPASS_PID)
         print('pid for CoffeeScript is {}'.format(coffee.pid))
