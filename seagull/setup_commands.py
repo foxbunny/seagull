@@ -20,7 +20,7 @@ import signal
 import tempfile
 import subprocess
 from distutils.cmd import Command
-from os.path import abspath, normpath, join, dirname, basename, exists
+from os.path import normpath, join, dirname, exists
 
 
 TMPDIR = tempfile.gettempdir()
