@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Seagull &mdash; Seagull 1.0.dev1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Seagull 1.0.dev1 documentation" href="index.html"/>
+        <link rel="next" title="First steps" href="first_steps.html"/>
+        <link rel="prev" title="Software requirements" href="requirements.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Seagull
+          
+
+          
+            
+            <img src="_static/seagull.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Software requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Seagull</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-from-github">Install from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-source-code">Clone the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verifying-the-install">Verifying the install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Seagull</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installing Seagull</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/installation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-seagull">
+<h1>Installing Seagull<a class="headerlink" href="#installing-seagull" title="Permalink to this headline">¶</a></h1>
+<p>Once all the prerequisites are satisfied (see :doc:requirements), you can
+install Seagull itself.</p>
+<div class="section" id="install-from-github">
+<h2>Install from GitHub<a class="headerlink" href="#install-from-github" title="Permalink to this headline">¶</a></h2>
+<p>To install Seagull on your computer as a package (as opposed to creating a
+local copy of the source, that is), you can install directly from the GitHub
+repository of the project:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foxbunny</span><span class="o">/</span><span class="n">seagull</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>If you need to know where it got installed, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import seagull; print(seagull.__appdir__)&#39;</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">seagull</span>
+<span class="c1"># or on Windows: c:\python35\lib\site-packages\seagull</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clone-the-source-code">
+<h2>Clone the source code<a class="headerlink" href="#clone-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p>If you installed the tools for working with the source code in the
+:doc:requirements section, you now get a chance to put them to use. First you
+will need to clone the Git repository:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">foxbunny</span><span class="o">/</span><span class="n">seagull</span><span class="o">.</span><span class="n">git</span>
+<span class="n">Cloning</span> <span class="n">into</span> <span class="s1">&#39;seagull&#39;</span><span class="o">...</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Counting</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">418</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Compressing</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">194</span><span class="o">/</span><span class="mi">194</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">emote</span><span class="p">:</span> <span class="n">Total</span> <span class="mi">418</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">226</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">377</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">185</span><span class="p">),</span> <span class="n">pack</span><span class="o">-</span><span class="n">reused</span> <span class="mi">0</span>
+<span class="n">Receiving</span> <span class="n">objects</span><span class="p">:</span>  <span class="mi">73</span><span class="o">%</span> <span class="p">(</span><span class="mi">306</span><span class="o">/</span><span class="mi">418</span><span class="p">),</span> <span class="mf">556.00</span> <span class="n">KiB</span> <span class="o">|</span> <span class="mf">260.00</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span>
+<span class="n">Receiving</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">418</span><span class="o">/</span><span class="mi">418</span><span class="p">),</span> <span class="mf">613.73</span> <span class="n">KiB</span> <span class="o">|</span> <span class="mf">260.00</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">Resolving</span> <span class="n">deltas</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">226</span><span class="o">/</span><span class="mi">226</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">Checking</span> <span class="n">connectivity</span><span class="o">...</span> <span class="n">done</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">cd</span> <span class="n">seagull</span>
+<span class="o">&gt;</span> <span class="n">mkvirtualenv</span> <span class="n">seagull</span>
+<span class="n">Using</span> <span class="n">base</span> <span class="n">prefix</span> <span class="s1">&#39;&lt;path to python&gt;&#39;</span>
+<span class="n">New</span> <span class="n">python</span> <span class="n">executable</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">python</span><span class="o">&gt;</span>
+<span class="n">Installing</span> <span class="n">setuptools</span><span class="p">,</span> <span class="n">pip</span><span class="p">,</span> <span class="n">wheel</span><span class="o">...</span><span class="n">done</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<span class="n">Obtaining</span> <span class="n">file</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">cloned</span> <span class="n">repository</span><span class="o">&gt;</span>
+<span class="n">Collecting</span> <span class="n">bottle</span><span class="o">==</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">9</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">seagull</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="n">dev1</span><span class="p">)</span>
+<span class="n">Collecting</span> <span class="n">bottle</span><span class="o">-</span><span class="n">streamline</span><span class="o">==</span><span class="mf">1.0</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">seagull</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="n">dev1</span><span class="p">)</span>
+<span class="n">Collecting</span> <span class="n">confloader</span><span class="o">==</span><span class="mf">1.1</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">seagull</span><span class="o">==</span><span class="mf">1.0</span><span class="o">.</span><span class="n">dev1</span><span class="p">)</span>
+<span class="o">....</span>
+<span class="o">....</span>
+</pre></div>
+</div>
+<p>Later if you wish to update the source code do:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">HEAD</span>
+<span class="o">&gt;</span> <span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you wish to learn more about Git, there is plenty of material on the Git
+homepage, in <a class="reference external" href="https://git-scm.com/doc">the documentation section</a>,
+including introductory videos.</p>
+</div>
+</div>
+<div class="section" id="verifying-the-install">
+<h2>Verifying the install<a class="headerlink" href="#verifying-the-install" title="Permalink to this headline">¶</a></h2>
+<p>To verify that seagull was installed correctly, you can run this command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">seagull</span> <span class="o">--</span><span class="n">version</span>
+<span class="mf">1.0</span><span class="o">.</span><span class="n">dev1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="first_steps.html" class="btn btn-neutral float-right" title="First steps" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="requirements.html" class="btn btn-neutral" title="Software requirements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Hajime Yamasaki Vukelic &lt;hayavuk@gmail.com&gt;.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

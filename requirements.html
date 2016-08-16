@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Software requirements &mdash; Seagull 1.0.dev1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Seagull 1.0.dev1 documentation" href="index.html"/>
+        <link rel="next" title="Installing Seagull" href="installation.html"/>
+        <link rel="prev" title="Seagull user guide" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Seagull
+          
+
+          
+            
+            <img src="_static/seagull.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-needed-for-skin-development">Software needed for skin development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-for-working-on-the-documentation">Tools for working on the documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-for-working-with-the-source-code">Tools for working with the source code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Seagull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first_steps.html">First steps</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Seagull</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Software requirements</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/requirements.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-requirements">
+<h1>Software requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h1>
+<p>In order to run Seagull on your machine, you will need to have a bunch of
+programs installed that Seagull depends on. Some of these programs are for
+running Seagull itself, some are for developing the skins. This section is
+divided into subsections so you can skip the parts you do not need at this
+time. You must, however, cover the <a class="reference internal" href="#basics">Basics</a> section.</p>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>At absolute minimum you will need to have Python 3.5 or newer installed.
+Seagull specifically uses features that were newly introduced in Python 3.5, so
+older versions will not work (not even older versions in the 3.x series).</p>
+<p>If you are on Linux, you should use your distro&#8217;s package manager to install
+Python. In some distributions (e.g., Arch Linux), the default <code class="docutils literal"><span class="pre">python</span></code>
+package is Python 3.x. On other distros, default is usually Python 2.x so the
+Python 3.x will use a package named <code class="docutils literal"><span class="pre">python3</span></code> or something along those lines.</p>
+<p>Windows and Mac users can peruse the <a class="reference external" href="https://www.python.org/downloads/">download page on python.org</a>.</p>
+<p>Once Python is installed, check that you have the correct version. Run the
+following command in the command line (command prompt):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>In some instances, you may need to refer to Python 3.5 as <code class="docutils literal"><span class="pre">python3</span></code> or even
+<code class="docutils literal"><span class="pre">python3.5</span></code> in the command line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Throughout the rest of the guide, when you see <code class="docutils literal"><span class="pre">python</span></code> in the command
+examples, you will use the command name that worked for you, be it <code class="docutils literal"><span class="pre">python</span></code>
+or <code class="docutils literal"><span class="pre">python3</span></code> (and the same applies to <code class="docutils literal"><span class="pre">pip</span></code> as you will see later on).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If your Linux distro does not ship the latest and greatest version, you
+will need to figure out a way to get the latest version. For older releases
+of Ubuntu, for example, follow <a class="reference external" href="http://askubuntu.com/a/682875/189682">this advice</a>. Debian has Python 3.5 <a class="reference external" href="https://packages.debian.org/sid/python3.5">in the
+unstable branch</a>. If you are
+going to eventually deploy Seagull yourself, it would probably be
+worthwhile to explore these upgrades now.</p>
+</div>
+<p>If your Python install does not come with <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, the Python package manager, you will also
+need to <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">install pip</a>.  The
+version of the pip package is not critical for using Seagull but asking for its
+version is a good way to test if it&#8217;s installed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">pip</span> <span class="mf">8.1</span><span class="o">.</span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.....</span> <span class="p">(</span><span class="n">python</span> <span class="mf">3.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make sure that it says &#8216;python 3.5&#8217; in the result. If it says something like
+&#8216;python 2.7&#8217; or any version other than 3.5, then you probably installed pip for
+the wrong version of Python. For example, on Linux, pip for Python 3.5 would be
+in a package named <code class="docutils literal"><span class="pre">python3-pip</span></code> or something similar. In some cases, the
+command itself may be different (e.g., <code class="docutils literal"><span class="pre">pip3</span></code> instead of <code class="docutils literal"><span class="pre">pip</span></code>).</p>
+</div>
+<div class="section" id="software-needed-for-skin-development">
+<h2>Software needed for skin development<a class="headerlink" href="#software-needed-for-skin-development" title="Permalink to this headline">¶</a></h2>
+<p>If you intend to customize the built-in skins (but not strictly required if you
+just want to create a completely new skin), you will also need:</p>
+<ul class="simple">
+<li>NodeJS and NPM for <a class="reference external" href="http://coffeescript.org/">CoffeeScript</a> support (see
+<a class="reference external" href="https://docs.npmjs.com/getting-started/installing-node">this guide</a>)</li>
+<li>Ruby and Ruby Gems for <a class="reference external" href="http://compass-style.org/">Compass</a> support (see
+<a class="reference external" href="http://www.ruby-lang.org/en/documentation/installation/">this guide</a>)</li>
+</ul>
+<p>To verify the installs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npm</span> <span class="o">--</span><span class="n">version</span>
+<span class="mf">3.10</span><span class="o">.</span><span class="mi">3</span>
+
+<span class="o">&gt;</span> <span class="n">gem</span> <span class="o">--</span><span class="n">version</span>
+<span class="mf">2.5</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Exact versions are not really important here. Once you have NodeJS, NPM, Ruby,
+and Ruby Gems installed, you will need to install CoffeeScript and Compass. To
+install CoffeeScript with NPM, run this command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">--</span><span class="k">global</span> <span class="n">coffee</span><span class="o">-</span><span class="n">script</span>
+</pre></div>
+</div>
+<p>Next install Compass using Ruby Gem:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">compass</span>
+</pre></div>
+</div>
+<p>You probably want to verify that these tools were installed correctly:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">coffee</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">CoffeeScript</span> <span class="n">version</span> <span class="mf">1.10</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="o">&gt;</span> <span class="n">compass</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Compass</span> <span class="mf">1.0</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="n">Polaris</span><span class="p">)</span>
+<span class="n">Copyright</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="mi">2008</span><span class="o">-</span><span class="mi">2016</span> <span class="n">Chris</span> <span class="n">Eppstein</span>
+<span class="n">Released</span> <span class="n">under</span> <span class="n">the</span> <span class="n">MIT</span> <span class="n">License</span><span class="o">.</span>
+<span class="n">Compass</span> <span class="ow">is</span> <span class="n">charityware</span><span class="o">.</span>
+<span class="n">Please</span> <span class="n">make</span> <span class="n">a</span> <span class="n">tax</span> <span class="n">deductable</span> <span class="n">donation</span> <span class="k">for</span> <span class="n">a</span> <span class="n">worthy</span> <span class="n">cause</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umdf</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">compass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tools-for-working-on-the-documentation">
+<h2>Tools for working on the documentation<a class="headerlink" href="#tools-for-working-on-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to hack at this guide, you will need to install Sphinx and the
+ReadTheDocs theme for Sphinx:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">rtd</span><span class="o">-</span><span class="n">theme</span>
+</pre></div>
+</div>
+<p>To verify that Sphinx was installed:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Sphinx</span> <span class="p">(</span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span><span class="p">)</span> <span class="mf">1.4</span><span class="o">.</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tools-for-working-with-the-source-code">
+<h2>Tools for working with the source code<a class="headerlink" href="#tools-for-working-with-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p>The Seagull source code can always be browsed through <a class="reference external" href="https://github.com/foxbunny/seagull">on GitHub</a>, so making a local copy of the source
+code and tracking it is not strictly necessary. If you still wish to give it a
+try, here are the tools you will need:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://git-scm.com/downloads">Git</a></li>
+<li><a class="reference external" href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html">virtualenvwrapper</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installing Seagull" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Seagull user guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Hajime Yamasaki Vukelic &lt;hayavuk@gmail.com&gt;.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

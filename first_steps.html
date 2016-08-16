@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>First steps &mdash; Seagull 1.0.dev1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Seagull 1.0.dev1 documentation" href="index.html"/>
+        <link rel="prev" title="Installing Seagull" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Seagull
+          
+
+          
+            
+            <img src="_static/seagull.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Software requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Seagull</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">First steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ignition">Ignition!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-the-cover">Adding the cover</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-the-photos">Adding the photos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-the-about-section">Adding the &#8216;About&#8217; section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-the-contact-links">Adding the contact links</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Seagull</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>First steps</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/first_steps.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="first-steps">
+<h1>First steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we&#8217;ll take Seagull for a quick step, and do some fairly basic
+&#8216;customization&#8217;, simply by manipulating the gallery folder.</p>
+<div class="section" id="ignition">
+<h2>Ignition!<a class="headerlink" href="#ignition" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s quickly start up Seagull and see what that does. In your console, type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">seagull</span>
+<span class="n">Starting</span> <span class="n">Seagull</span>
+<span class="n">Registering</span> <span class="n">SIGINT</span> <span class="n">handler</span>
+<span class="n">Registering</span> <span class="n">SIGTERM</span> <span class="n">handler</span>
+<span class="n">Preparing</span> <span class="n">application</span> <span class="n">to</span> <span class="n">run</span>
+<span class="n">Added</span> <span class="n">JS</span> <span class="n">bundle</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+<span class="n">Added</span> <span class="n">CSS</span> <span class="n">bundle</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">css</span>
+<span class="n">Quitting</span><span class="p">,</span> <span class="n">no</span> <span class="n">gallery</span> <span class="n">directory</span> <span class="s1">&#39;/tmp/seagull-gallery&#39;</span>
+</pre></div>
+</div>
+<p>So that was a bit underwhelming. It&#8217;s missing a gallery folder at its
+default location, which is <code class="docutils literal"><span class="pre">/tmp/seagull-gallery</span></code> (or
+<code class="docutils literal"><span class="pre">C:\tmp\seagull-gallery</span></code> on Windows). Thankfully, this is easy to fix. Let&#8217;s
+create the folder where it wants it and try again:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">seagull</span>
+<span class="n">Starting</span> <span class="n">Seagull</span>
+<span class="n">Registering</span> <span class="n">SIGINT</span> <span class="n">handler</span>
+<span class="n">Registering</span> <span class="n">SIGTERM</span> <span class="n">handler</span>
+<span class="n">Preparing</span> <span class="n">application</span> <span class="n">to</span> <span class="n">run</span>
+<span class="n">Added</span> <span class="n">JS</span> <span class="n">bundle</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+<span class="n">Added</span> <span class="n">CSS</span> <span class="n">bundle</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">css</span>
+<span class="n">Setting</span> <span class="n">up</span> <span class="n">index</span> <span class="k">for</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">seagull</span><span class="o">-</span><span class="n">gallery</span>
+<span class="n">Sorting</span> <span class="n">items</span>
+<span class="n">Added</span> <span class="mi">0</span> <span class="n">items</span> <span class="n">to</span> <span class="n">the</span> <span class="n">index</span>
+<span class="n">Route</span> <span class="n">gallery</span><span class="p">:</span><span class="n">main</span> <span class="n">mapped</span> <span class="n">to</span> <span class="o">/</span>
+<span class="n">Route</span> <span class="n">gallery</span><span class="p">:</span><span class="n">image</span> <span class="n">mapped</span> <span class="n">to</span> <span class="o">/</span><span class="n">gallery</span><span class="o">/&lt;</span><span class="n">path</span><span class="p">:</span><span class="n">path</span><span class="o">&gt;</span>
+<span class="n">Route</span> <span class="n">gallery</span><span class="p">:</span><span class="n">reindex</span> <span class="n">mapped</span> <span class="n">to</span> <span class="o">/</span><span class="n">reindex</span><span class="o">/&lt;</span><span class="n">token</span><span class="o">&gt;</span>
+<span class="n">Route</span> <span class="n">app</span><span class="p">:</span><span class="n">static</span> <span class="n">mapped</span> <span class="n">to</span> <span class="o">/</span><span class="n">static</span><span class="o">/&lt;</span><span class="n">path</span><span class="p">:</span><span class="n">path</span><span class="o">&gt;</span>
+<span class="n">Server</span> <span class="n">started</span> <span class="n">on</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>
+<span class="n">Server</span> <span class="n">started</span> <span class="n">on</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Now that&#8217;s more like it. It does say &#8216;Server started&#8217; twice, but it&#8217;s only
+starting once. It&#8217;s a bug. To access Seagull, let&#8217;s open our favorite browser
+(Firefox, of course) and browse to <a class="reference external" href="http://localhost:8080/">localhost:8080</a>.</p>
+<img alt="Seagull screenshot when started for the first time" src="_images/first-start.jpg" />
+</div>
+<div class="section" id="adding-the-cover">
+<h2>Adding the cover<a class="headerlink" href="#adding-the-cover" title="Permalink to this headline">¶</a></h2>
+<p>The screen looks deliciously dark, but I&#8217;m pretty sure not everyone enjoys
+dark. Let&#8217;s add a cover image. Pick any JPEG image that&#8217;s fairly large (say,
+1600px by 1200px) and put it in the gallery folder. Rename the image to
+<code class="docutils literal"><span class="pre">_cover.jpg</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only JPEG images are supported for covers at this time, and it will likely
+remain that way for foreeseable future. This can be fixed relatively easily
+through skinning, though.</p>
+</div>
+<p>Let&#8217;s reload the page.</p>
+<img alt="Seagull screenshot after cover image is added" src="_images/first-cover.jpg" />
+<p>It already looks presentable. You will notice that the two bottom links don&#8217;t
+do much. This is because there are no photos in the gallery.</p>
+</div>
+<div class="section" id="adding-the-photos">
+<h2>Adding the photos<a class="headerlink" href="#adding-the-photos" title="Permalink to this headline">¶</a></h2>
+<p>To add the photos to the gallery, we simply dump a bunch of JPEG, PNG, or GIF
+images into the gallery folder.</p>
+<img alt="File manager showing the gallery folder" src="_images/gallery-folder.jpg" />
+<p>Let&#8217;s reload the page.</p>
+<img alt="Seagull with no photos in the gallery" src="_images/no-photos.jpg" />
+<p>But wait. There are still no photos. This is because, unlike the cover page,
+the photos in the actual gallery need to be reindexed before they will show up.
+It would be too CPU-intensive if we did this every time we load the page, so we
+do it only as needed. To trigger the indexing, we use a magic URL:
+<a class="reference external" href="http://localhost:8080/reindex/reindex-now-1234">localhost:8080/reindex/reindex-now-1234</a> (the part that says
+&#8216;reindex-now-1234&#8217; is configurable, and we&#8217;ll get to that in the next section).
+Once we go to that page, we will see a message about gallery being rescanned.</p>
+<img alt="'Gallery was rescanned' message" src="_images/rescanned.jpg" />
+<p>After approximately 5 seconds, we are back in the main page. If we now scroll
+down or use the &#8216;gallery&#8217; link, we will see our photos.</p>
+<img alt="Gallery with photos loaded" src="_images/gallery-with-photos.jpg" />
+<p>The photos are ordered in lexical order (or in plain English: alphabetically).
+All you need to do in order to change the image order is to change the file
+names.</p>
+</div>
+<div class="section" id="adding-the-about-section">
+<h2>Adding the &#8216;About&#8217; section<a class="headerlink" href="#adding-the-about-section" title="Permalink to this headline">¶</a></h2>
+<p>Seagull supports adding an &#8216;About&#8217; section that appears right below the cover
+image on the start page. The about section is written in <a class="reference external" href="http://daringfireball.net/projects/markdown/">Markdown</a>, so it&#8217;s helpful to know <a class="reference external" href="http://daringfireball.net/projects/markdown/syntax">its
+syntax</a>. Let&#8217;s open up an
+editor and add some text for a short about section:</p>
+<div class="highlight-markdown"><div class="highlight"><pre><span></span>## Seagull photo gallery
+
+Seagull photo gallery is an open-source photo gallery application.
+</pre></div>
+</div>
+<p>We&#8217;ll save this file in our gallery folder and name it <code class="docutils literal"><span class="pre">_about.mkd</span></code>.</p>
+<img alt="The _about.mkd file in the gallery folder" src="_images/about-file.jpg" />
+<p>As with the photos, we need to reindex the gallery. Once the gallery is
+reindexed, and we reload the page, we see that there is a new link in the menu,
+and that our text has been rendered as a section below the cover page just like
+promised.</p>
+<img alt="Screenshot of Seagull with about section" src="_images/about-section.jpg" />
+</div>
+<div class="section" id="adding-the-contact-links">
+<h2>Adding the contact links<a class="headerlink" href="#adding-the-contact-links" title="Permalink to this headline">¶</a></h2>
+<p>There is one more thing that we can add using the gallery folder and that&#8217;s
+contact links section. It would be most straightforward to explain how these
+work by showing an example:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>email: hayavuk@gmail.com
+facebook: hayavuk
+twitter: foxbunny
+flickr: foxbunny
+linkedin: brankovukelic
+youtube: UC7OFFqXeuvvlRIXGkK4jMsQ
+</pre></div>
+</div>
+<p>The above example contains all supported contact links. The order does not
+matter, but the names on the left have to be exactly as they appear there and
+must be all lower-case. On the right, you always type in the last portion of
+the profile address (the bit after the last slash: /).</p>
+<p>Now, let&#8217;s save this file in our gallery folder as <code class="docutils literal"><span class="pre">_contact.info</span></code>.</p>
+<img alt="The _contact.info file in the gallery folder" src="_images/contact-file.jpg" />
+<p>After reindexing and reloading the page, the menu contains the contact link,
+and contact links section appears at the bottom of the page.</p>
+<img alt="_images/contact-section.jpg" src="_images/contact-section.jpg" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installing Seagull" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Hajime Yamasaki Vukelic &lt;hayavuk@gmail.com&gt;.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.dev1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
