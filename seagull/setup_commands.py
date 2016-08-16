@@ -20,7 +20,7 @@ import signal
 import tempfile
 import subprocess
 from distutils.cmd import Command
-from os.path import abspath, normpath, join, dirname, basename, exists
+from os.path import normpath, join, dirname, exists
 
 
 TMPDIR = tempfile.gettempdir()
@@ -97,12 +97,16 @@ class Watch(AssetsCommand):
             f.write(str(pid))
 
     def run(self):
-        compass = subprocess.Popen(
-            self.compass_cmd('watch'),
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
-        coffee = subprocess.Popen(
-            self.coffee_cmd('--watch'),
-            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
+        if hasattr(subprocess, 'CREATE_NEW_PROCESS_GROUP'):
+            # On Windows, commands are run in a subshell regardless of the
+            # ``shell`` argument unless CREATE_NEW_PROCESS_GROUP flag is used.
+            # This flag is not supported on *nix platforms, so we test that the
+            # flag is supposed instead of testing for platform.
+            popen_kw = dict(creationflags=subprocess.CREATE_NEW_PROCESS_GROUP)
+        else:
+            popen_kw = {}
+        compass = subprocess.Popen(self.compass_cmd('watch'), **popen_kw)
+        coffee = subprocess.Popen(self.coffee_cmd('--watch'), **popen_kw)
         print('pid for Compass is {}'.format(compass.pid))
         self.write_pid(compass.pid, COMPASS_PID)
         print('pid for CoffeeScript is {}'.format(coffee.pid))
