@@ -20,7 +20,7 @@ Guide contents
 
     requirements
     installation
-    fist_steps
+    first_steps
     customizing_configuration
     customizing_styling
     customizing_template
