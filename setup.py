@@ -33,6 +33,7 @@ setup(
     author=seagull.__author__,
     author_email='hayavuk@gmail.com',
     description='Photography folio app',
+    url='https://foxbunny.github.io/seagull/',
     license='GPLv3+',
     keywords='photography app website ajax json ftp',
     packages=find_packages(),
