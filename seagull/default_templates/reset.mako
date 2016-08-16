@@ -20,4 +20,8 @@
 
 <%block name="title">Gallery reindex</%block>
 
-<p>Gallery was rescanned.</p>
+<%block name="extra_head">
+    <meta http-equiv="refresh" content="5; url=/">
+</%block>
+
+<p class="message">Gallery was rescanned.</p>
