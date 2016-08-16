@@ -177,6 +177,13 @@ footer {
   color: #bbbbbb;
 }
 
+/* line 70, ../../src/scss/_layout.scss */
+.message {
+  font-size: 150%;
+  text-align: center;
+  padding: 5rem 2rem 2rem;
+}
+
 /*
 
 SEAGULL THEME // Hero
