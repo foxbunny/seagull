@@ -238,10 +238,11 @@ class BundleParser:
 
 def configure(conf):
     srcdir = conf['runtime.assets_dir']
+    gallery_dir = conf['runtime.gallery_dir']
     bundlefile = os.path.join(srcdir, 'bundles.conf')
     bundles = BundleParser(bundlefile).parse()
-    savedir = conf.get('assets.static_dir', '/tmp/seagull-static')
-    savedir = os.path.join(__appdir__, savedir)
+    savedir = conf.get('assets.static_dir', '_static')
+    savedir = os.path.join(gallery_dir, savedir)
     if not os.path.exists(savedir):
         os.makedirs(savedir)
     url = conf.get('assets.static_url', '/static')

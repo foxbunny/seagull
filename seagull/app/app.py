@@ -189,8 +189,8 @@ class App:
         })
         skinning.configure(self.conf)
         templating.configure(self.conf)
-        assets.configure(self.conf)
         gallery.configure(self.conf)
+        assets.configure(self.conf)
         metadata.configure(self.conf)
 
     def prepare_routes(self):
