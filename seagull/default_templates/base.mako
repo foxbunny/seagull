@@ -47,7 +47,7 @@
         ${self.body()}
         <footer id="footer" class="footer">
             <p class="copyright">
-                &copy;${metadata.copyright_range} ${metadata.author}.
+                &copy;${metadata.copyright_range | n} ${metadata.author}.
                 All rights reserved.
             </p>
         </footer>
