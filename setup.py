@@ -15,11 +15,17 @@
 #
 
 import os
+import sys
 
 from setuptools import setup, find_packages
 
 import seagull
-from seagull import setup_commands
+
+try:
+    from seagull import setup_commands
+except SyntaxError:
+    # Probably an earlier version of Python
+    from seagull import dummy_setup_commands as setup_commands
 
 
 def read(fname):
