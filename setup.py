@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 #
 # Seagull photo gallery app
 # Copyright (C) 2016  Hajime Yamasaki Vukelic
