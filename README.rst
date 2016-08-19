@@ -24,8 +24,8 @@ have the following features:
 - [x] Fast asyncrhonous backend
 - [x] Easy filesystem-based maintenance
 - [x] Cross-platform support (Linux and Windows, OSX might work too)
+- [ ] Static site generator
 - [ ] Full support for social metadata
-- [ ] Built-in FTP server
 - [ ] Full user and developer documentation
 
 Installing
