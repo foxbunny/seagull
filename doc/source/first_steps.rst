@@ -47,6 +47,15 @@ starting once. It's a bug. To access Seagull, let's open our favorite browser
 .. image:: img/first-start.jpg
     :alt: Seagull screenshot when started for the first time
 
+To stop the gallery app, press Ctrl-C in the console where you started it. ::
+
+    ...
+    Server started on http://0.0.0.0:8080/
+    Server started on http://0.0.0.0:8080/
+    Server stopped
+
+For now let's start it up again and keep it running while we fiddle with it.
+
 Adding the cover
 ----------------
 
