@@ -35,7 +35,7 @@ setup(
     description='Photography folio app',
     url='https://foxbunny.github.io/seagull/',
     license='GPLv3+',
-    keywords='photography app website ajax json ftp',
+    keywords='photography app website ajax json',
     packages=find_packages(),
     include_package_data=True,
     long_description=read('README.rst'),
