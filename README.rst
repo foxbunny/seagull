@@ -33,6 +33,12 @@ Installing
 
 TODO
 
+Documentation
+=============
+
+Seagull user guide can be found `on ReadTheDocs
+<http://seagull.readthedocs.io/en/latest/>`_.
+
 Starting and stopping
 =====================
 
