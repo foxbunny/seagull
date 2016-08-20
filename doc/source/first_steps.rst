@@ -141,15 +141,27 @@ promised.
 .. image:: img/about-section.jpg
     :alt: Screenshot of Seagull with about section
 
-Adding the contact links
-------------------------
+Changing the site metadata
+--------------------------
 
 There is one more thing that we can add using the gallery folder and that's
-contact links section. It would be most straightforward to explain how these
-work by showing an example:
+the site metadata. The metadata affect the following:
+
+- site title
+- site description
+- author name
+- copyright year
+- contact links section
+
+This is done by adding a file named ``_about.info`` to the gallery folder. The
+structure of the file is best explained using an example::
 
 .. code-block:: text
 
+    title: Projections
+    description: Hajime Yamasaki photo gallery
+    author: Hajime Yamasaki
+    copyright: 2011
     email: hayavuk@gmail.com
     facebook: hayavuk
     twitter: foxbunny
@@ -157,17 +169,20 @@ work by showing an example:
     linkedin: brankovukelic
     youtube: UC7OFFqXeuvvlRIXGkK4jMsQ
 
-The above example contains all supported contact links. The order does not
-matter, but the names on the left have to be exactly as they appear there and
-must be all lower-case. On the right, you always type in the last portion of
-the profile address (the bit after the last slash: /).
+The above example contains all the supported metadata and contact link
+information. The order does not matter, but the names on the left have to be
+exactly as they appear there and must be all lower-case. For contact links, you
+always type in the last portion of the profile address (the bit after the last
+slash: /) on the right-hand side.
 
-Now, let's save this file in our gallery folder as ``_contact.info``.
-
-.. image:: img/contact-file.jpg
-    :alt: The _contact.info file in the gallery folder
+Now, let's save this file in our gallery folder as ``_about.info``.
 
 After reindexing and reloading the page, the menu contains the contact link,
-and contact links section appears at the bottom of the page.
+the gallery title and description are updated, and contact links section
+appears at the bottom of the page.
 
-.. image:: img/contact-section.jpg
+.. image:: img/custom-title.jpg
+    :alt: The _about.info file in the gallery hero are
+
+.. image:: img/custom-footer.jpg
+    :alt: The _about.info file in the gallery folder
