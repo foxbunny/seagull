@@ -252,15 +252,14 @@ The modified portions now look like this::
       z-index: 1;
       font-size: 400%;
       line-height: 100%;
-      margin-top: 2rem;
-      margin-left: 2rem;
+      padding: 2rem 2rem 1rem;
       ...
 
     p {
       position: relative;
       z-index: 1;
       white-space: nowrap;
-      margin-left: 2rem;
+      padding: 0 2rem;
       ...
 
 .. image:: img/modified-skin.jpg
