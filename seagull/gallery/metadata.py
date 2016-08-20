@@ -73,15 +73,15 @@ class Metadata:
         self.about = ''
         self.info = None
         self.reload()
+
+    def reload(self):
+        self.about = self.get_html(join(self.gallery_dir, '_about.mkd'))
+        self.info = self.get_kval(join(self.gallery_dir, '_about.info'))
         self.title = self.info.title
         self.description = self.info.description
         self.copyright_year = self.info.copyright
         self.author = self.info.author
         self.contact = self.info
-
-    def reload(self):
-        self.about = self.get_html(join(self.gallery_dir, '_about.mkd'))
-        self.info = self.get_kval(join(self.gallery_dir, '_about.info'))
 
     @property
     def copyright_range(self):
