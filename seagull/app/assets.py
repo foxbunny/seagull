@@ -138,7 +138,7 @@ class Assets:
         return input value verbatim.
         """
         if type(s) is str:
-            return s + '.js'
+            return os.path.normpath(s + '.js')
         return s
 
     @staticmethod
@@ -148,7 +148,7 @@ class Assets:
         return input value verbatim.
         """
         if type(s) is str:
-            return s + '.css'
+            return os.path.normpath(s + '.css')
         return s
 
     @classmethod
