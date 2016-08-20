@@ -13,6 +13,7 @@
 # details.
 #
 
+import logging
 from os.path import normpath, join, isdir
 
 from seagull import __appdir__
@@ -33,6 +34,8 @@ def configure(conf):
         skin_path = normpath(join(extra_skins, skin))
     if not isdir(skin_path):
         skin_path = normpath(join(__appdir__, 'skins', skin))
+    if skin != DEFAULT_SKIN:
+        logging.debug("Using skin '{}'".format(skin))
     templates_dir = join(skin_path, 'templates')
     assets_dir = join(skin_path, 'assets')
     conf['runtime.skin_templates_dir'] = templates_dir
