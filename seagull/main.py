@@ -28,6 +28,7 @@ gevent.hub.Hub.NOT_ERROR = (Exception,)
 
 import os
 import sys
+import shutil
 
 import bottle
 
@@ -71,6 +72,9 @@ def main():
                         help='create the custom configuration template')
     parser.add_argument('--generate-site', '-G', action='store_true',
                         help='generate static files in the gallery directory')
+    parser.add_argument('--custom-skin', '-K', metavar='PATH',
+                        help='copy the default skin into the specified '
+                        'directory')
     args = parser.parse_args()
 
     if args.version:
@@ -81,6 +85,17 @@ def main():
         conf_path = os.path.abspath(os.path.join(__appdir__, 'seagull.ini'))
         with open(args.custom_conf, 'w') as f:
             f.write(CONFIGURATION_TEMPLATE.format(path=conf_path))
+        return 0
+
+    if args.custom_skin:
+        if os.path.exists(args.custom_skin):
+            print("ERROR: '{}' already exists".format(
+                args.custom_skin))
+            return 1
+        skin_dir = os.path.abspath(os.path.join(__appdir__, 'skins',
+                                                'seagull'))
+        shutil.copytree(skin_dir, args.custom_skin)
+        print("Created skin in '{}'".format(args.custom_skin))
         return 0
 
     if args.stop:
