@@ -20,7 +20,7 @@ import signal
 import tempfile
 import subprocess
 from distutils.cmd import Command
-from os.path import normpath, join, dirname, exists
+from os.path import normpath, join, dirname, exists, isdir
 
 
 TMPDIR = tempfile.gettempdir()
@@ -50,7 +50,10 @@ class AssetsCommand(Command):
         self.static_url = '/static/'
 
     def finalize_options(self):
-        skindir = join(self.SKINDIR, normpath(self.skin))
+        if isdir(self.skin):
+            skindir = self.skin
+        else:
+            skindir = join(self.SKINDIR, self.skin)
         if not exists(skindir):
             raise RuntimeError("'{}': no such skin".format(self.skin))
         self.skindir = skindir
