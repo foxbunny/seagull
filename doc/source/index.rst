@@ -23,6 +23,6 @@ Guide contents
     first_steps
     customizing_configuration
     customizing_styling
-    customizing_template
+    customizing_templates
     advanced_customization
     production_deployment
