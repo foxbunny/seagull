@@ -27,14 +27,34 @@ def url_method(urlpattern, keyname):
     return meth
 
 
-class Contact:
+class AboutInfo:
+    DEFAULT_INFO = {
+        'title': 'Seagull',
+        'description': 'Open-source skinnable photo gallery app',
+        'copyright': 2016,
+        'author': 'Seagull',
+    }
+
     def __init__(self, contact_info):
-        self.info = contact_info
+        self.info = self.DEFAULT_INFO.copy()
+        self.info.update(contact_info)
+
+    def __getattr__(self, name):
+        if name in self.info:
+            return self.info[name]
+        return super().__getattribute__(name)
 
     def _get_url(self, urlpattern, key):
         if key not in self.info:
             return None
         return urlpattern.format(self.info[key])
+
+    @property
+    def copyright(self):
+        try:
+            return int(self.info['copyright'])
+        except (KeyError, TypeError, ValueError):
+            return datetime.date.today().year
 
     email = url_method('mailto:{}', 'email')
     facebook = url_method('https://www.facebook.com/{}/', 'facebook')
@@ -46,21 +66,22 @@ class Contact:
 
 
 class Metadata:
-    def __init__(self, title, desc, author, copyright, gallery_dir):
-        self.title = title
-        self.description = desc
-        self.author = author
-        self.copyright_year = copyright
+    def __init__(self, gallery_dir):
         self.gallery_dir = gallery_dir
         self.cover = None
         self.logo = None
         self.about = ''
-        self.contact = ''
+        self.info = None
         self.reload()
+        self.title = self.info.title
+        self.description = self.info.description
+        self.copyright_year = self.info.copyright
+        self.author = self.info.author
+        self.contact = self.info
 
     def reload(self):
         self.about = self.get_html(join(self.gallery_dir, '_about.mkd'))
-        self.contact = self.get_kval(join(self.gallery_dir, '_contact.info'))
+        self.info = self.get_kval(join(self.gallery_dir, '_about.info'))
 
     @property
     def copyright_range(self):
@@ -79,13 +100,13 @@ class Metadata:
 
     @staticmethod
     def get_kval(path):
-        contact = {}
+        info = {}
         try:
             with open(path, 'r') as f:
                 for line in f:
                     key, val = line.split(':', 1)
-                    contact[key] = val.strip()
+                    info[key] = val.strip()
         except (OSError, IOError, IndexError):
             return None
         else:
-            return Contact(contact)
+            return AboutInfo(info)

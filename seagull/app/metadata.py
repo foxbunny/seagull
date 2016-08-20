@@ -20,10 +20,6 @@ from ..gallery.metadata import Metadata
 
 def configure(conf):
     gallery_dir = conf['runtime.gallery_dir']
-    title = conf['seagull.title']
-    description = conf['seagull.description']
-    author = conf['seagull.author']
-    copyright = conf['seagull.copyright']
-    metadata = Metadata(title, description, author, copyright, gallery_dir)
+    metadata = Metadata(gallery_dir)
     conf['runtime.metadata'] = metadata
     conf['runtime.template_defaults']['metadata'] = metadata
