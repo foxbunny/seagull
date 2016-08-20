@@ -31,16 +31,16 @@
 </%block>
 
 <heading class="hero${' hero-short' if pager.has_prev else ''}" id="top">
-<h1>
+<h1 class="title">
     %if pager.has_prev:
-    <a href="${url('gallery:main')}" class="logo">
+    <a href="${url('gallery:main')}" class="title-link logo">
     %endif
     ${metadata.title}
     %if pager.has_prev:
     </a>
     %endif
 </h1>
-<p>
+<p class="description">
     ${metadata.description}
 </p>
 <nav id="navigation" class="navigation">
@@ -56,7 +56,7 @@
 </nav>
 </heading>
 
-%if not pager.has_prev and metadata.about:
+%if pager.is_first and metadata.about:
     <section id="about" class="about">
     ${metadata.about | n,unicode}
     </section>

@@ -314,7 +314,7 @@ for more details.
   animation: 3s ease darken;
 }
 /* line 74, ../../src/scss/_hero.scss */
-.hero h1 {
+.hero .title {
   position: absolute;
   z-index: 1;
   font-size: 400%;
@@ -332,17 +332,17 @@ for more details.
 }
 @media screen and (min-width: 600px) {
   /* line 74, ../../src/scss/_hero.scss */
-  .hero h1 {
+  .hero .title {
     font-size: 700%;
   }
 }
 /* line 89, ../../src/scss/_hero.scss */
-.hero h1 a {
+.hero .title .title-link {
   color: #eee;
   text-decoration: none;
 }
 /* line 95, ../../src/scss/_hero.scss */
-.hero p {
+.hero .description {
   position: absolute;
   z-index: 1;
   text-align: right;
@@ -370,7 +370,7 @@ for more details.
   animation: none;
 }
 /* line 115, ../../src/scss/_hero.scss */
-.hero.hero-short h1 {
+.hero.hero-short .title {
   position: relative;
   top: 0;
   left: 0;
@@ -383,7 +383,7 @@ for more details.
   font-size: 200%;
 }
 /* line 126, ../../src/scss/_hero.scss */
-.hero.hero-short p {
+.hero.hero-short .description {
   display: none;
 }
 

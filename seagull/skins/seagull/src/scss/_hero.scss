@@ -19,18 +19,6 @@ or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
 for more details.
 */
 
-@include keyframes(fly-in) {
-  from {
-    @include transform(translateX(30rem));
-  }
-  50% {
-    @include transform(translateX(30rem));
-  }
-  to {
-    @include transform(translateX(0));
-  }
-}
-
 @include keyframes(darken) {
   from {
     background: transparentize(black, 1);
@@ -71,7 +59,7 @@ for more details.
     @include animation(3s ease darken);
   }
 
-  h1 {
+  .title {
     position: absolute;
     z-index: 1;
     font-size: 400%;
@@ -80,26 +68,24 @@ for more details.
     right: 2rem;
     bottom: 7rem;
     @include transform(translateX(0));
-    @include animation(6s ease-out fly-in);
 
     @media screen and (min-width: 600px) {
       font-size: 700%;
     }
 
-    a {
+    .title-link {
       color: $text;
       text-decoration: none;
     }
   }
 
-  p {
+  .description {
     position: absolute;
     z-index: 1;
     text-align: right;
     right: 2rem;
     bottom: 3.2rem;
     @include transform(translateX(0));
-    @include animation(8s ease-out fly-in);
     white-space: nowrap;
   }
 
@@ -112,7 +98,7 @@ for more details.
       @include animation(none);
     }
 
-    h1 {
+    .title {
       position: relative;
       top: 0;
       left: 0;
@@ -123,7 +109,7 @@ for more details.
       font-size: 200%;
     }
 
-    p {
+    .description {
       display: none;
     }
   }

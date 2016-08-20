@@ -225,13 +225,13 @@ file, find and remove the following lines:
 
 .. code-block:: css
 
-    h1 {
+    .title {
       ...
       @include transform(translateX(0));          <-- this
       @include animation(6s ease-out fly-in);     <-- and this
     }
 
-    p {
+    .description {
       ...
       @include transform(translateX(0));          <-- this
       @include animation(8s ease-out fly-in);     <-- also, this
@@ -247,7 +247,7 @@ Refreshing the page, we see that the animation is no longer there. Good. Now I
 want the title and subtitle to be at the top of the page, and left-aligned.
 The modified portions now look like this::
 
-    h1 {
+    .title {
       position: relative;
       z-index: 1;
       font-size: 400%;
@@ -255,7 +255,7 @@ The modified portions now look like this::
       padding: 2rem 2rem 1rem;
       ...
 
-    p {
+    .description {
       position: relative;
       z-index: 1;
       white-space: nowrap;
