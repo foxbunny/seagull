@@ -34,6 +34,7 @@ from . import (
     gallery,
     metadata,
     static_site,
+    commands,
 )
 
 try:
@@ -54,7 +55,7 @@ class App:
     LOOP_INTERVAL = 10
 
     def __init__(self, conf, background=False, pid_file=None, wd='/',
-                 quiet=False, static=False):
+                 quiet=False, static=False, args=None):
         self.child = False
         self.running = False
         self.app = bottle.Bottle()
@@ -80,6 +81,7 @@ class App:
         }
         self.conf['runtime.template_defaults'] = self.template_defaults
         self.conf['runtime.static_site'] = self.static
+        self.conf['runtime.cmdline'] = args
         logger.configure(self.conf, self.quiet)
 
     def fork(self):
@@ -202,6 +204,7 @@ class App:
         gallery.configure(self.conf)
         assets.configure(self.conf)
         metadata.configure(self.conf)
+        commands.configure(self.conf)
         static_site.configure(self.conf)
 
     def prepare_routes(self):

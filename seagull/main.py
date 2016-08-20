@@ -75,6 +75,8 @@ def main():
     parser.add_argument('--custom-skin', '-K', metavar='PATH',
                         help='copy the default skin into the specified '
                         'directory')
+    parser.add_argument('--templates', action='store_true',
+                        help='show the template directories')
     args = parser.parse_args()
 
     if args.version:
@@ -113,7 +115,7 @@ def main():
 
     app = App(conf=args.conf, background=args.background,
               pid_file=args.pid_file, quiet=args.quiet,
-              static=args.generate_site)
+              static=args.generate_site, args=args)
     return app.start()
 
 

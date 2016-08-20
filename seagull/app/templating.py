@@ -36,6 +36,7 @@ def configure(conf, **options):
     cache_dir = conf.get('seagull.template_cache', DEFAULT_CACHE)
     templates_dirs = [conf['runtime.skin_templates_dir'],
                       DEFAULT_TEMPLATES_DIR]
+    conf['runtime.template_dirs'] = templates_dirs
     default_filters = ['unicode', 'h']
     TEMPLATE_CONFIG['lookup'] = TemplateLookup(directories=templates_dirs,
                                                filesystem_checks=debug,
