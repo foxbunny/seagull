@@ -69,6 +69,8 @@ def main():
                         'started with given options')
     parser.add_argument('--custom-conf', '-C', metavar='PATH',
                         help='create the custom configuration template')
+    parser.add_argument('--generate-site', '-G', action='store_true',
+                        help='generate static files in the gallery directory')
     args = parser.parse_args()
 
     if args.version:
@@ -95,7 +97,8 @@ def main():
         sys.exit(0)
 
     app = App(conf=args.conf, background=args.background,
-              pid_file=args.pid_file, quiet=args.quiet)
+              pid_file=args.pid_file, quiet=args.quiet,
+              static=args.generate_site)
     return app.start()
 
 

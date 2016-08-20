@@ -23,6 +23,13 @@
 
 <%block name="title">${metadata.title} | page ${pager.current_page}</%block>
 
+<%block name="extra_head">
+    <% cover_url = '_cover.jpg' if static else url('gallery:image', path='_cover.jpg') %>
+    <style>
+        .hero::before { background-image: url(${cover_url})}
+    </style>
+</%block>
+
 <heading class="hero${' hero-short' if pager.has_prev else ''}" id="top">
 <h1>
     %if pager.has_prev:

@@ -34,7 +34,6 @@ TEMPLATE_CONFIG = {
 def configure(conf, **options):
     debug = conf.get('seagull.debug')
     cache_dir = conf.get('seagull.template_cache', DEFAULT_CACHE)
-    defaults = conf['runtime.template_defaults']
     templates_dirs = [conf['runtime.skin_templates_dir'],
                       DEFAULT_TEMPLATES_DIR]
     default_filters = ['unicode', 'h']
@@ -43,7 +42,7 @@ def configure(conf, **options):
                                                default_filters=default_filters,
                                                module_directory=cache_dir,
                                                **options)
-    TEMPLATE_CONFIG['defaults'] = defaults
+    TEMPLATE_CONFIG['defaults'] = conf['runtime.template_defaults']
     if not os.path.exists(cache_dir):
         os.makedirs(cache_dir)
 

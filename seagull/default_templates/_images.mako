@@ -20,7 +20,11 @@
 </%doc>
 
 %for entry in pager:
-<li class="gallery-entry" data-path="${gallery.get_urlpath(entry)}">\
-<img class="gallery-image" src="${url('gallery:image', path=gallery.get_urlpath(entry))}">\
-</li>\
+    <%
+        path = gallery.get_urlpath(entry)
+        image_url = path if static else url('gallery:image', path=path)
+    %>
+    <li class="gallery-entry" data-path="${path}" data-url="${image_url}">\
+    <img class="gallery-image" src="${image_url}">\
+    </li>\
 %endfor

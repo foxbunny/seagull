@@ -26,7 +26,15 @@ import confloader
 import gevent.pywsgi
 
 from ..routes import ROUTES
-from . import logger, skinning, templating, assets, gallery, metadata
+from . import (
+    logger,
+    skinning,
+    templating,
+    assets,
+    gallery,
+    metadata,
+    static_site,
+)
 
 try:
     import pwd, grp
@@ -46,7 +54,7 @@ class App:
     LOOP_INTERVAL = 10
 
     def __init__(self, conf, background=False, pid_file=None, wd='/',
-                 quiet=False):
+                 quiet=False, static=False):
         self.child = False
         self.running = False
         self.app = bottle.Bottle()
@@ -59,6 +67,7 @@ class App:
         self.server = None
         self.host = None
         self.port = None
+        self.static = static
         self.load_conf()
         self.user = self.conf.get('seagull.user')
         self.group = self.conf.get('seagull.group')
@@ -70,6 +79,7 @@ class App:
             'url': self.app.get_url,
         }
         self.conf['runtime.template_defaults'] = self.template_defaults
+        self.conf['runtime.static_site'] = self.static
         logger.configure(self.conf, self.quiet)
 
     def fork(self):
@@ -192,6 +202,7 @@ class App:
         gallery.configure(self.conf)
         assets.configure(self.conf)
         metadata.configure(self.conf)
+        static_site.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:
@@ -207,6 +218,8 @@ class App:
     def start_app(self):
         self.prepare_app()
         self.prepare_routes()
+        if self.static:
+            sys.exit(static_site.build(self.conf))
         self.server.start()
         if not self.server.started:
             logging.critical('Failed to start server')

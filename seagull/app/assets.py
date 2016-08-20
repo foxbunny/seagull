@@ -15,6 +15,7 @@
 
 import os
 import logging
+from urllib.request import pathname2url
 
 import webassets.script
 
@@ -245,7 +246,11 @@ def configure(conf):
     savedir = os.path.join(gallery_dir, savedir)
     if not os.path.exists(savedir):
         os.makedirs(savedir)
-    url = conf.get('assets.static_url', '/static')
+    if conf['runtime.static_site']:
+        basedir = os.path.relpath(savedir, gallery_dir)
+        url = pathname2url(basedir)
+    else:
+        url = conf.get('assets.static_url', '/static')
     debug = conf.get('assets.debug', False)
     if debug:
         # We don't really want full debugging, just the minifiers gone

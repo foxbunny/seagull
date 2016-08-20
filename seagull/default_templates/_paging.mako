@@ -32,17 +32,23 @@
     more details.
 </%doc>
 
+<%def name="pager_link(page, cls, label)">
+    %if static:
+        <a href="${page_file(page)}" class="pager-${cls} pager-page">
+    %else:
+        <a href="${url('gallery:main', page=page)}" class="pager-${cls} pager-page">
+    %endif
+        ${label}
+    </a>
+</%def>
+
 <%def name="simple_pager()">
     <p class="pager">
         %if pager.has_prev:
-            <a href="${url('gallery:main', page=pager.prev_page)}" class="pager-prev pager-page">
-                previous
-            </a>
+            ${pager_link(pager.prev_page, 'prev', 'previous')}
         %endif
         %if pager.has_next:
-            <a href="${url('gallery:main', page=pager.next_page)}" class="pager-next pager-page">
-                next
-            </a>
+            ${pager_link(pager.next_page, 'next', 'next')}
         %endif
     </p>
 </%def>
