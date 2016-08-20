@@ -197,7 +197,7 @@ Enough talk, let's start the watcher::
 
     > python setup.py watch --skin myskin
     running watch
-    Watching skin in '/path/to/myskin'
+    using skin in '/path/to/myskin'
     pid for Compass is 9768
     pid for CoffeeScript is 1416
     12:59:26 PM - compiled /path/to/myskin/src/coffee/main.coffee

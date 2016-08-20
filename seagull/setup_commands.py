@@ -56,7 +56,7 @@ class AssetsCommand(Command):
             skindir = join(self.SKINDIR, self.skin)
         if not exists(skindir):
             raise RuntimeError("'{}': no such skin".format(self.skin))
-        print("Watching skin in '{}'".format(skindir))
+        print("using skin in '{}'".format(skindir))
         self.skindir = skindir
         self.srcdir = join(skindir, 'src')
         self.assetsdir = join(self.skindir, 'assets')
