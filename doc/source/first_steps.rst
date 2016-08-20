@@ -154,7 +154,7 @@ the site metadata. The metadata affect the following:
 - contact links section
 
 This is done by adding a file named ``_about.info`` to the gallery folder. The
-structure of the file is best explained using an example::
+structure of the file is best explained using an example:
 
 .. code-block:: text
 
@@ -176,6 +176,9 @@ always type in the last portion of the profile address (the bit after the last
 slash: /) on the right-hand side.
 
 Now, let's save this file in our gallery folder as ``_about.info``.
+
+.. image:: img/about-info-file.jpg
+    :alt: The _about.info file in the gallery folder
 
 After reindexing and reloading the page, the menu contains the contact link,
 the gallery title and description are updated, and contact links section
