@@ -46,6 +46,14 @@ class Pager:
         return self.index[first_item:last_item]
 
     @property
+    def is_first(self):
+        return self.current_page == 1
+
+    @property
+    def is_last(self):
+        return self.current_page == self.pages
+
+    @property
     def has_next(self):
         """
         Whether there is a next page
