@@ -195,11 +195,9 @@ soon as changes are detected.
 
 Enough talk, let's start the watcher::
 
-    > python setup.py watch --skin myskin
-    running watch
+    > seagull watch --skin-path myskin
+    starting watchers
     using skin in '/path/to/myskin'
-    pid for Compass is 9768
-    pid for CoffeeScript is 1416
     12:59:26 PM - compiled /path/to/myskin/src/coffee/main.coffee
     >>> Compass is watching for changes. Press Ctrl-C to Stop.
 
@@ -274,7 +272,7 @@ It's important to note that the watcher is now running in the background. You
 can type additional commands in the same console, for example. Simply closing
 the console may not stop them, so let's see how to stop the watcher properly::
 
-    > python setup.py stop
-    running stop
+    > seagull stop-watchers
+    stopping watchers
 
 That's it. Now the watchers are stopped.
