@@ -13,6 +13,6 @@
 # details.
 #
 
-from .app import App
+from .main import App
 
 __all__ = ('App',)

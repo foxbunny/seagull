@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #
 # Seagull photo gallery app
 # Copyright (C) 2016  Hajime Yamasaki Vukelic
@@ -14,30 +13,14 @@
 # details.
 #
 
-# These imports need to be here at the top so monkey patching can be done as
-# early as possible.
-
-import gevent.monkey
-gevent.monkey.patch_all(aggressive=True)
-
-# For more details on the below see: http://bit.ly/18fP1uo
-import gevent.hub
-gevent.hub.Hub.NOT_ERROR = (Exception,)
-
-# Continuing with normal imports
-
-import sys
-import locale
-
-from seagull.app import App
+from . import Option
 
 
-def main():
-    # Initialize the locale
-    locale.setlocale(locale.LC_ALL, '')
+class Version(Option):
+    @property
+    def version_string(self):
+        return 'Seagull {ver}'.format(ver=self.conf['runtime.version'])
 
-    return App().start()
-
-
-if __name__ == '__main__':
-    sys.exit(main())
+    def add_args(self):
+        self.parser.add_argument('--version', action='version',
+                                 version=self.version_string)

@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #
 # Seagull photo gallery app
 # Copyright (C) 2016  Hajime Yamasaki Vukelic
@@ -14,30 +13,22 @@
 # details.
 #
 
-# These imports need to be here at the top so monkey patching can be done as
-# early as possible.
-
-import gevent.monkey
-gevent.monkey.patch_all(aggressive=True)
-
-# For more details on the below see: http://bit.ly/18fP1uo
-import gevent.hub
-gevent.hub.Hub.NOT_ERROR = (Exception,)
-
-# Continuing with normal imports
-
+import os
 import sys
-import locale
 
-from seagull.app import App
-
-
-def main():
-    # Initialize the locale
-    locale.setlocale(locale.LC_ALL, '')
-
-    return App().start()
+from . import Command
 
 
-if __name__ == '__main__':
-    sys.exit(main())
+def templates_hook(conf):
+    for t in conf['runtime.template_dirs']:
+        print(os.path.abspath(t))
+    sys.exit(0)
+
+
+
+class Templates(Command):
+    name = 'templates'
+    help = 'list the template directories'
+
+    def run(self, args):
+        self.conf['runtime.start_hooks'].append(templates_hook)

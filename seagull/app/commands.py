@@ -15,12 +15,42 @@
 
 import os
 import sys
+import argparse
 
 
-def configure(conf):
-    cmdline = conf['runtime.cmdline']
-    if cmdline.templates:
-        for t in conf['runtime.template_dirs']:
-            print(os.path.abspath(t))
-        sys.exit(0)
+from ..cmdline.version import Version
+from ..cmdline.conf import Conf
+from ..cmdline.process import Startup, Stop
+from ..cmdline.templates import Templates
+from ..cmdline.custom_conf import CustomConf
+from ..cmdline.custom_skin import CustomSkin
+from ..cmdline.static_site import StaticSite
 
+
+COMMANDS = (
+    Version,
+    Conf,
+    Startup,
+    Stop,
+    Templates,
+    CustomConf,
+    CustomSkin,
+    StaticSite,
+)
+
+DESCRIPTION = 'Seagull application manager and utility commands'
+
+
+def parse_args(conf):
+    registered = []
+    parser = argparse.ArgumentParser(prog='seagull', description=DESCRIPTION)
+    subparsers = parser.add_subparsers(title='commands', dest='command')
+
+    for cmd in COMMANDS:
+        cmd(registered.append, parser, subparsers, conf)
+    args = parser.parse_args()
+    for cmd in registered:
+        if cmd.test(args):
+            cmd.run(args)
+    if args.command:
+        args.callback.run(args)

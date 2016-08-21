@@ -16,7 +16,6 @@
 import os
 import sys
 import signal
-import locale
 import logging
 import importlib
 
@@ -25,6 +24,7 @@ import gevent
 import confloader
 import gevent.pywsgi
 
+from .. import __appdir__, __version__
 from ..routes import ROUTES
 from . import (
     logger,
@@ -33,7 +33,6 @@ from . import (
     assets,
     gallery,
     metadata,
-    static_site,
     commands,
 )
 
@@ -44,8 +43,6 @@ except ImportError:
 else:
     has_user = True
 
-# Initialize the locale
-locale.setlocale(locale.LC_ALL, '')
 
 class App:
     READ = 'r'
@@ -54,35 +51,50 @@ class App:
     DEFAULT_PORT = 8080
     LOOP_INTERVAL = 10
 
-    def __init__(self, conf, background=False, pid_file=None, wd='/',
-                 quiet=False, static=False, args=None):
+    def __init__(self):
+        self.app = bottle.Bottle()
+        self.conf = confloader.ConfDict({
+            'runtime.appdir': __appdir__,
+            'runtime.version': __version__,
+            'runtime.work_dir': os.getcwd(),
+            'runtime.initialize_hooks': [],
+            'runtime.start_hooks': [],
+        })
+
+        # Commands fire as soon as possible
+        commands.parse_args(self.conf)
+
+        # Runtime config
         self.child = False
         self.running = False
-        self.app = bottle.Bottle()
-        self.conf_file = conf
-        self.conf = None
-        self.background = background
-        self.pid_file = pid_file
-        self.wd = wd
-        self.quiet = quiet
+        self.quiet = self.conf.pop('runtime.quiet')
+        self.background = self.conf.pop('runtime.background')
+        self.pid_file = self.conf.pop('runtime.pid_file')
+        self.user = self.conf.pop('runtime.user')
+        self.group = self.conf.pop('runtime.group')
+        self.debug = self.conf['runtime.debug']
+        bottle.debug(self.debug)
+
+        # Hooks
+        self.initialize_hooks = self.conf.pop('runtime.initialize_hooks')
+        self.start_hooks = self.conf.pop('runtime.start_hooks')
+
+        # Runtime params
         self.server = None
         self.host = None
         self.port = None
-        self.static = static
-        self.load_conf()
-        self.user = self.conf.get('seagull.user')
-        self.group = self.conf.get('seagull.group')
-        self.debug = self.conf.get('seagull.debug', False)
+
         self.template_defaults = {
             'request': bottle.request,
-            'app': self.app,
-            'conf': self.conf,
             'url': self.app.get_url,
         }
         self.conf['runtime.template_defaults'] = self.template_defaults
-        self.conf['runtime.static_site'] = self.static
-        self.conf['runtime.cmdline'] = args
+
+        # Set up logger
         logger.configure(self.conf, self.quiet)
+
+        for hook in self.initialize_hooks:
+            hook(self.conf)
 
     def fork(self):
         """
@@ -160,7 +172,7 @@ class App:
         logging.debug('Started child process')
         self.child = True
         # Set up the process environment
-        os.chdir(os.path.normpath(self.wd))
+        os.chdir(os.path.normpath(self.work_dir))
         os.umask(0)
         # Fork second time
         try:
@@ -204,8 +216,6 @@ class App:
         gallery.configure(self.conf)
         assets.configure(self.conf)
         metadata.configure(self.conf)
-        commands.configure(self.conf)
-        static_site.configure(self.conf)
 
     def prepare_routes(self):
         for route in ROUTES:
@@ -221,8 +231,10 @@ class App:
     def start_app(self):
         self.prepare_app()
         self.prepare_routes()
-        if self.static:
-            sys.exit(static_site.build(self.conf))
+
+        for hook in self.start_hooks:
+            hook(self.conf)
+
         self.server.start()
         if not self.server.started:
             logging.critical('Failed to start server')
@@ -279,10 +291,6 @@ class App:
     def loop(self):
         while self.running:
             gevent.sleep(self.LOOP_INTERVAL)
-
-    @staticmethod
-    def kill(pid):
-        os.kill(pid, signal.SIGTERM)
 
     @staticmethod
     def import_object(name):

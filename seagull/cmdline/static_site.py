@@ -14,9 +14,12 @@
 #
 
 import os
+import sys
+
+from . import Command
 
 from ..gallery.pager import Pager
-from .templating import render
+from ..app.templating import render
 
 
 def page_file(page_number):
@@ -37,10 +40,6 @@ def write_page(output_dir, page_number, html):
         f.write(html)
 
 
-def configure(conf):
-    conf['runtime.template_defaults']['page_file'] = page_file
-
-
 def build(conf):
     index = conf['runtime.gallery']
     output_dir = conf['runtime.gallery_dir']
@@ -48,10 +47,24 @@ def build(conf):
     ctx.pop('request')
     ctx['index'] = index
     ctx['static'] = True
+    ctx['page_file'] = page_file
     total_pages = Pager(index).pages
-    print('Gallery has {} pages')
+    print('Gallery has {} pages'.format(total_pages))
     for page_number in range(1, total_pages + 1):
         print('Rendering page {}: '.format(page_number), end='')
         html = render_page(ctx, page_number)
         write_page(output_dir, page_number, html)
         print('DONE')
+    sys.exit(0)
+
+
+class StaticSite(Command):
+    name = 'static-site'
+    help = 'dump a static version of the gallery in the gallery dir'
+
+    def add_args(self):
+        self.conf['runtime.static_site'] = False
+
+    def run(self, args):
+        self.conf['runtime.static_site'] = True
+        self.conf['runtime.start_hooks'].append(build)
