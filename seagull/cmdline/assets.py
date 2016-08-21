@@ -44,7 +44,7 @@ class AssetsCommand:
         if conf['runtime.skin_path_override']:
             self.skindir = abspath(conf['runtime.skin_path_override'])
         else:
-            self.skindir = conf['runtime.skin_path']
+            self.skindir = abspath(conf['runtime.skin_path'])
         print("using skin in '{}'".format(self.skindir))
         self.static_url = conf['assets.static_url']
         self.srcdir = join(self.skindir, 'src')
