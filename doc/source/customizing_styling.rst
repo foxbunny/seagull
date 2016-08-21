@@ -11,9 +11,9 @@ touching up the default skin.
 Creating the skin folder
 ------------------------
 
-To create a skin folder, we'll use the ``--custom-skin`` option. ::
+To create a skin folder, we'll use the ``custom-skin`` command. ::
 
-    > seagull --custom-skin myskin
+    > seagull custom-skin myskin
     Created skin in 'myskin'
 
 What this option does is it creates a copy of the default skin at the specified

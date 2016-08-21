@@ -13,7 +13,7 @@ Creating the custom configuration file
 The ``seagull`` command we have been using has a shortcut for creating our own
 configuration file. Let's try it::
 
-    > seagull --custom-conf mygull.ini
+    > seagull custom-conf mygull.ini
 
 Now let's open the file in an editor. The contents look like this::
 

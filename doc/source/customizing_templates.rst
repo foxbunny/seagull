@@ -16,7 +16,7 @@ The tour of the templates
 Before we start hacking at templates, I will give you a brief tour of what each
 template does. First lets locate the templates::
 
-    > seagull -q --templates
+    > seagull templates
     /usr/lib/python3.5/site-packages/seagull/skins/seagull/templates
     /usr/lib/python3.5/site-packages/seagull/default_templates
 
