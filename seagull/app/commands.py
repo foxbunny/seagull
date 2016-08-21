@@ -25,6 +25,7 @@ from ..cmdline.templates import Templates
 from ..cmdline.custom_conf import CustomConf
 from ..cmdline.custom_skin import CustomSkin
 from ..cmdline.static_site import StaticSite
+from ..cmdline.assets import Watch, StopWatchers, Recompile
 
 
 COMMANDS = (
@@ -36,6 +37,9 @@ COMMANDS = (
     CustomConf,
     CustomSkin,
     StaticSite,
+    Watch,
+    StopWatchers,
+    Recompile,
 )
 
 DESCRIPTION = 'Seagull application manager and utility commands'

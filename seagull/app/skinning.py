@@ -38,5 +38,6 @@ def configure(conf):
         logging.debug("Using skin '{}'".format(skin))
     templates_dir = join(skin_path, 'templates')
     assets_dir = join(skin_path, 'assets')
+    conf['runtime.skin_path'] = skin_path
     conf['runtime.skin_templates_dir'] = templates_dir
     conf['runtime.assets_dir'] = assets_dir

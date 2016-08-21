@@ -54,7 +54,7 @@ class Startup(Option):
         self.conf['runtime.background'] = args.background
         self.conf['runtime.pid_file'] = args.pid_file
         self.conf['runtime.user'] = args.user or user_default
-        self.conf['runtime.group'] = args.group or user.default
+        self.conf['runtime.group'] = args.group or group_default
         self.conf['runtime.debug'] = args.debug or debug_default
         self.conf['runtime.quiet'] = args.quiet or args.command is not None
 

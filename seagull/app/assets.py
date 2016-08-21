@@ -234,6 +234,7 @@ class BundleParser:
         for line in fd:
             self.next(line.strip())
         self.finalize_bundle()
+        fd.close()
         return self.collected
 
 

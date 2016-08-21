@@ -21,12 +21,6 @@ from setuptools import setup, find_packages
 
 import seagull
 
-try:
-    from seagull import setup_commands
-except SyntaxError:
-    # Probably an earlier version of Python
-    from seagull import dummy_setup_commands as setup_commands
-
 
 def read(fname):
     """ Return content of specified file """
@@ -59,11 +53,6 @@ setup(
         'console_scripts': [
             'seagull = seagull.main:main',
         ],
-    },
-    cmdclass={
-        'watch': setup_commands.Watch,
-        'stop': setup_commands.Stop,
-        'recompile': setup_commands.Recompile,
     },
     classifiers=[
         'Development Status :: 3 - Alpha',
